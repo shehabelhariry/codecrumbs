@@ -1,0 +1,37 @@
+.header {
+  padding: 1rem 0 3rem;
+}
+
+.link {
+  color: #999;
+  &:hover {
+    color: hsl(189, 65%, 32%);
+  }
+}
+
+.active-link {
+  color: hsl(189, 65%, 32%);
+}
+.title {
+  color: black;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+.navigation {
+  ul {
+    padding: 0;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    li {
+      list-style: none;
+      margin-right: 1.3rem;
+
+      a {
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

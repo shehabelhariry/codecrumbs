@@ -1,0 +1,15 @@
+.container {
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.content-container {
+  flex-grow: 1;
+}
