@@ -14,9 +14,9 @@ const Hero = () => {
           Your Development success is <br />
           one
           <Typist>
+            <Typist.Delay ms={1200} />
             breadcrumb
-            <Typist.Delay ms={700} />
-            <Typist.Backspace count={10} delay={600} />
+            <Typist.Backspace count={10} delay={1200} />
             codecrumb
           </Typist>
           away
