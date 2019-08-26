@@ -1,6 +1,8 @@
 import React from "react"
 import heroStyles from "./Hero.module.scss"
 import Button from "../Button/Button"
+import Typist from "react-typist"
+import "react-typist/dist/Typist.css"
 
 const img1 = require("../../pages/5.png")
 const img2 = require("../../pages/1.png")
@@ -10,7 +12,14 @@ const Hero = () => {
       <div className={heroStyles.description}>
         <h1>
           Your Development success is <br />
-          one breadcrumb away
+          one
+          <Typist>
+            breadcrumb
+            <Typist.Delay ms={700} />
+            <Typist.Backspace count={10} delay={600} />
+            codecrumb
+          </Typist>
+          away
         </h1>
         <p>
           Learn JS and CSS code tips and tricks from our <br /> collection of
