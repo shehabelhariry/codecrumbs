@@ -1,0 +1,21 @@
+.code-crumbs-button {
+  background-color: transparent;
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 1.3rem;
+  border-radius: 600px;
+  padding: 0.4rem 1.2rem;
+  border: 2px solid #36c7bb;
+  color: #36c7bb;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s all ease-in-out;
+  &:hover {
+    background-color: #36c7bb;
+    color: white;
+  }
+}
+.code-crumbs-button-text-span {
+  position: relative;
+  top: -2px;
+}

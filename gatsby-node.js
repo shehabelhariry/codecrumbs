@@ -55,14 +55,15 @@ exports.createPages = async function({ actions, graphql }) {
       context: { slug: slug },
     })
   })
+  console.log(JSON.stringify(contentFullData, null, 2))
 
-  // data.allMarkdownRemark.edges.forEach(edge => {
-  //   console.log(edge)
-  //   const slug = edge.node.fields.slug
-  //   actions.createPage({
-  //     path: `blog/${slug}`,
-  //     component: require.resolve(`./src/templates/blog.js`),
-  //     context: { slug: slug },
-  //   })
-  // })
+  contentFullData.data.allContentfulBlogPost.nodes.forEach(edge => {
+    console.log(JSON.stringify(edge, null, 2))
+    const slug = edge.slug
+    actions.createPage({
+      path: `blog/${slug}`,
+      component: require.resolve(`./src/templates/blog.js`),
+      context: { slug: slug },
+    })
+  })
 }

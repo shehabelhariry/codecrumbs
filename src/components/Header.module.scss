@@ -1,16 +1,20 @@
 .header {
-  padding: 1rem 0 3rem;
+  padding: 1rem 0 1.5rem;
+  max-width: 1344px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .link {
-  color: #999;
+  color: #343434;
   &:hover {
-    color: hsl(189, 65%, 32%);
+    color: #36c7bb;
   }
 }
 
 .active-link {
-  color: hsl(189, 65%, 32%);
+  color: #36c7bb;
 }
 .title {
   color: black;
@@ -19,6 +23,17 @@
 }
 
 .navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  h1 {
+    .title {
+      font-size: 1.5rem;
+      color: #36c7bb;
+      font-family: "Fredoka One", cursive;
+      font-weight: 300;
+    }
+  }
   ul {
     padding: 0;
     display: flex;
@@ -26,11 +41,13 @@
     align-items: center;
     li {
       list-style: none;
-      margin-right: 1.3rem;
+      margin-left: 2rem;
 
       a {
         text-decoration: none;
         font-size: 0.9rem;
+        font-family: "Darker Grotesque", sans-serif;
+        font-size: 1.2rem;
       }
     }
   }
