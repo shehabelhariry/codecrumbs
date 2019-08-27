@@ -1,0 +1,24 @@
+.blog-container {
+  background-color: #f9f9f9;
+  padding: 2rem;
+}
+
+.blog-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  a {
+    text-decoration: none;
+    color: #343434;
+    font-family: "Darker Grotesque", sans-serif;
+  }
+}
+
+.blog-info {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: #8e8e8e;
+  a {
+    color: #343434;
+  }
+}

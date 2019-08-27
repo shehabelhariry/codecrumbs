@@ -626,3 +626,23 @@ pre tt:after {
   display: inline-block;
   padding: 0rem 0.9rem;
 }
+
+body {
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-title {
+  font-size: 1.8rem;
+  font-family: "Darker Grotesque", sans-serif;
+  margin-bottom: 0.5rem;
+  color: #4b4b4b;
+}
+
+.page-description {
+  font-size: 1.3rem;
+  font-family: "Darker Grotesque", sans-serif;
+  color: #888888;
+}
