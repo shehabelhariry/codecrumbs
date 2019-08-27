@@ -621,3 +621,23 @@ pre tt:after {
   }
 }
 @import url("https://fonts.googleapis.com/css?family=Darker+Grotesque:400,500,600,700,800,900|Fredoka+One&display=swap");
+
+body {
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+.page-title {
+  font-size: 1.8rem;
+  font-family: "Darker Grotesque", sans-serif;
+  margin-bottom: 0.5rem;
+  color: #4b4b4b;
+}
+
+.page-description {
+  font-size: 1.3rem;
+  font-family: "Darker Grotesque", sans-serif;
+  color: #888888;
+}
