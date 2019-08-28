@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Button from "./Button/Button"
 import headerStyles from "./Header.module.scss"
+import Link from "gatsby-plugin-transition-link/AniLink"
 
 const Header = () => {
   const siteInfo = useStaticQuery(graphql`
@@ -18,7 +19,7 @@ const Header = () => {
     <header className={headerStyles.header}>
       <nav className={headerStyles.navigation}>
         <h1>
-          <Link className={headerStyles.title} to="/">
+          <Link className={headerStyles.title} paintDrip hex="#36c7bb" to="/">
             {siteInfo.site.siteMetadata.title}
           </Link>
         </h1>
@@ -26,6 +27,8 @@ const Header = () => {
           <li>
             <Link
               className={headerStyles.link}
+              paintDrip
+              hex="#36c7bb"
               to="/our-work"
               activeClassName={headerStyles.activeLink}
             >
@@ -35,6 +38,8 @@ const Header = () => {
           <li>
             <Link
               className={headerStyles.link}
+              paintDrip
+              hex="#36c7bb"
               to="/blog"
               activeClassName={headerStyles.activeLink}
             >
@@ -44,6 +49,8 @@ const Header = () => {
           <li>
             <Link
               className={headerStyles.link}
+              paintDrip
+              hex="#36c7bb"
               to="/about"
               activeClassName={headerStyles.activeLink}
             >

@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import Link from "gatsby-plugin-transition-link/AniLink"
 import buttonStyles from "./Button.module.scss"
 
 const Button = ({ children, as = "button", href }) => {
@@ -11,7 +11,7 @@ const Button = ({ children, as = "button", href }) => {
         </span>
       </button>
     ) : (
-      <Link to={href} {...props}>
+      <Link to={href} {...props} hex="#36c7bb">
         <span className={buttonStyles.codeCrumbsButtonTextSpan}>
           {children}
         </span>

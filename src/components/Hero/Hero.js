@@ -3,6 +3,9 @@ import heroStyles from "./Hero.module.scss"
 import Button from "../Button/Button"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
+import Img from "gatsby-image"
+
+import { graphql } from "gatsby"
 
 const img1 = require("../../pages/5.png")
 const img2 = require("../../pages/1.png")
