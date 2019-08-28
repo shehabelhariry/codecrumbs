@@ -1,0 +1,14 @@
+.container {
+  max-width: 1344px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.blog {
+  p {
+    font-size: 1.4rem;
+    color: #111;
+    line-height: 1.8rem;
+  }
+}
