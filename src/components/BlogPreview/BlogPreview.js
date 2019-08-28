@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import Link from "gatsby-plugin-transition-link/AniLink"
 import styles from "./blog-preview.module.scss"
 
 const BlogPreview = ({ post }) => {
@@ -7,7 +7,9 @@ const BlogPreview = ({ post }) => {
     <div className={styles.blogContainer}>
       <div className="box">
         <h3 className={styles.blogTitle}>
-          <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+          <Link to={`/blog/${post.slug}`} fade>
+            {post.title}
+          </Link>
         </h3>
         {post.previewImage ? <img src={post.previewImage.file.url} /> : null}
         <span className={styles.blogInfo}>

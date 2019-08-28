@@ -11,7 +11,7 @@ const Button = ({ children, as = "button", href }) => {
         </span>
       </button>
     ) : (
-      <Link to={href} {...props} hex="#36c7bb">
+      <Link to={href} {...props} hex="#36c7bb" paintDrip>
         <span className={buttonStyles.codeCrumbsButtonTextSpan}>
           {children}
         </span>
