@@ -18,17 +18,19 @@ export const query = graphql`
 `
 
 const Blog = props => {
-  // const { data } = props
+  const { data } = props
   console.log(props)
   return (
     <Layout>
-      {/* <div>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <p>{data.markdownRemark.frontmatter.date}</p>
-        <div
-          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
-        ></div>
-      </div> */}
+      <div>
+        <h1>{data.contentfulBlogPost.title}</h1>
+        <p>{data.contentfulBlogPost.date}</p>
+        {/* <div
+          dangerouslySetInnerHTML={{
+            __html: data.contentfulBlogPost.body.content.content.value,
+          }}
+        ></div> */}
+      </div>
     </Layout>
   )
 }
