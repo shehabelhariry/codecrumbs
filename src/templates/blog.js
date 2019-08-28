@@ -20,10 +20,6 @@ export const query = graphql`
 
 const Blog = props => {
   const { data } = props
-  console.log(
-    data,
-    documentToReactComponents(data.contentfulBlogPost.body.json)
-  )
   return (
     <Layout>
       <div className={styles.container}>

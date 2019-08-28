@@ -15,19 +15,28 @@ module.exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 exports.createPages = async function({ actions, graphql }) {
-  const { data } = await graphql(`
-    query {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
+  // const { data } = await graphql(`
+  //   query {
+  //     allMarkdownRemark {
+  //       edges {
+  //         node {
+  //           fields {
+  //             slug
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `)
+
+  // data.allMarkdownRemark.edges.forEach(edge => {
+  //   const slug = edge.node.fields.slug
+  //   actions.createPage({
+  //     path: `blog/${slug}`,
+  //     component: require.resolve(`./src/templates/blog.js`),
+  //     context: { slug: slug },
+  //   })
+  // })
 
   const contentFullData = await graphql(`
     query {
@@ -44,21 +53,7 @@ exports.createPages = async function({ actions, graphql }) {
     }
   `)
 
-  console.log(contentFullData)
-
-  data.allMarkdownRemark.edges.forEach(edge => {
-    console.log(edge)
-    const slug = edge.node.fields.slug
-    actions.createPage({
-      path: `blog/${slug}`,
-      component: require.resolve(`./src/templates/blog.js`),
-      context: { slug: slug },
-    })
-  })
-  console.log(JSON.stringify(contentFullData, null, 2))
-
   contentFullData.data.allContentfulBlogPost.nodes.forEach(edge => {
-    console.log(JSON.stringify(edge, null, 2))
     const slug = edge.slug
     actions.createPage({
       path: `blog/${slug}`,
