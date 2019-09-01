@@ -7,7 +7,12 @@ const ContactPage = () => {
       <div className="width-container">
         <h1 className="page-title">Contact</h1>
         <p>Drop me a word</p>
-        <form name="contact" method="POST" data-netlify="true">
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          action="/success"
+        >
           <div className="form-group">
             <label for="subject">Subject</label>
             <input name="subject" />
