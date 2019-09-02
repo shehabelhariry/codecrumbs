@@ -12,3 +12,18 @@
     line-height: 1.8rem;
   }
 }
+
+.copyable-code-snippet {
+  position: relative;
+  button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0;
+  }
+  &:hover {
+    button {
+      opacity: 1;
+    }
+  }
+}

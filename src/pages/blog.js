@@ -26,7 +26,6 @@ const BlogPage = () => {
     }
   `)
 
-  console.log(blogPosts)
   return (
     <Layout>
       <div className={blogStyles.pageContainer}>
