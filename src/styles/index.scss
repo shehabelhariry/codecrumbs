@@ -651,6 +651,28 @@ body {
   font-family: "Darker Grotesque", sans-serif;
   color: #888888;
 }
+.hamburger {
+  &.is-active {
+    z-index: 4;
+    position: relative;
+  }
+}
+
+.hamburger-inner {
+  background-color: #36c7bb !important;
+  &::after,
+  &::before {
+    background-color: #36c7bb !important;
+  }
+  .is-active & {
+    background-color: white !important;
+    &::after,
+    &::before {
+      background-color: white !important;
+    }
+  }
+}
+
 /**
  * Monokai theme for Prism.JS
  *

@@ -3,6 +3,9 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 2fr 1fr;
+  @media all and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .blog {
