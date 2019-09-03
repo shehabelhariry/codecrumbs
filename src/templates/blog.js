@@ -56,7 +56,6 @@ const Blog = props => {
                     const codeValue = node.content[0].value
                       .split("::")[1]
                       .trim()
-                    // console.log({ node })
                     return (
                       <div className={styles.copyableCodeSnippet}>
                         <Button theme="solid">Copy</Button>
@@ -65,6 +64,8 @@ const Blog = props => {
                             backgroundColor: "#343434",
                             color: "white",
                             fontSize: "18px",
+                            maxWidth: "94vw",
+                            overflow: "auto",
                           }}
                           dangerouslySetInnerHTML={{
                             __html: Prism.highlight(

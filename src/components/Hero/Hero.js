@@ -33,8 +33,7 @@ const Hero = () => {
         </Button>
       </div>
       <div className={heroStyles.imagesParalex}>
-        <img src={img1} />
-        {/* <img src={img2} /> */}
+        <img src={img1} />  
       </div>
     </div>
   )

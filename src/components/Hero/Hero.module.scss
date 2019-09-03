@@ -22,4 +22,7 @@
 
 .images-paralex {
   max-width: 800px;
+  @media all and (max-width: 768px) {
+    display: none;
+  }
 }
