@@ -2,23 +2,33 @@ import React from "react"
 import Link from "gatsby-plugin-transition-link/AniLink"
 import buttonStyles from "./Button.module.scss"
 
-const Button = ({ children, as = "button", href }) => {
+const Button = originalButtonProps => {
+  const { children, as = "button", href } = originalButtonProps
+  const CustomTag = as
   const ButtonComponent = props => {
-    return as === "button" ? (
-      <button {...props}>
+    if (as === "link") {
+      return (
+        <Link to={href} {...props} hex="#36c7bb" paintDrip>
+          <span className={buttonStyles.codeCrumbsButtonTextSpan}>
+            {children}
+          </span>
+        </Link>
+      )
+    }
+    return (
+      <CustomTag {...props}>
         <span className={buttonStyles.codeCrumbsButtonTextSpan}>
           {children}
         </span>
-      </button>
-    ) : (
-      <Link to={href} {...props} hex="#36c7bb" paintDrip>
-        <span className={buttonStyles.codeCrumbsButtonTextSpan}>
-          {children}
-        </span>
-      </Link>
+      </CustomTag>
     )
   }
-  return <ButtonComponent className={buttonStyles.codeCrumbsButton} />
+  return (
+    <ButtonComponent
+      {...originalButtonProps}
+      className={buttonStyles.codeCrumbsButton}
+    />
+  )
 }
 
 export default Button

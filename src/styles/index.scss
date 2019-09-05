@@ -652,6 +652,7 @@ body {
   color: #888888;
 }
 .hamburger {
+  transform: scale(0.7);
   &.is-active {
     z-index: 4;
     position: relative;
