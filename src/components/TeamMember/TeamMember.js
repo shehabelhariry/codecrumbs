@@ -30,25 +30,25 @@ const TeamMember = ({
       <Avatar {...avatarProps} eyebrowType={eyeBrows} mouthType={mouth} />
       <h3>{name}</h3>
       <p>{about}</p>
-      <div className="team-member__icons">
-        <a
-          onMouseEnter={changeExpression}
-          onMouseLeave={changeExpression}
-          href={linkedIn}
-        >
+      <div
+        className="team-member__icons"
+        onMouseEnter={changeExpression}
+        onMouseLeave={changeExpression}
+      >
+        <a href={linkedIn}>
           <img src={LinkedInImage} />
         </a>
         <a
           href={github}
-          onMouseEnter={changeExpression}
-          onMouseLeave={changeExpression}
+          //   onMouseEnter={changeExpression}
+          //   onMouseLeave={changeExpression}
         >
           <img src={GithubImage} />
         </a>
         <a
           href={twitter}
-          onMouseEnter={changeExpression}
-          onMouseLeave={changeExpression}
+          //   onMouseEnter={changeExpression}
+          //   onMouseLeave={changeExpression}
         >
           <img src={twitterImg} />
         </a>
