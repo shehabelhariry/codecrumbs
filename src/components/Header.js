@@ -45,7 +45,7 @@ const Header = () => {
           </button>
         </div>
         <ul className={menuIsOpen ? headerStyles.fullScreen : null}>
-          <li>
+          {/* <li>
             <Link
               className={headerStyles.link}
               paintDrip
@@ -55,7 +55,7 @@ const Header = () => {
             >
               Our Work
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               className={headerStyles.link}
@@ -75,7 +75,7 @@ const Header = () => {
               to="/about"
               activeClassName={headerStyles.activeLink}
             >
-              About
+              Team
             </Link>
           </li>
           <li>

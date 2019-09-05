@@ -21,6 +21,10 @@
         margin: 0 20px;
         text-align: center;
       }
+      transition: all 0.4s ease;
+      &:hover {
+        transform: translateY(-6px);
+      }
     }
     p {
       margin: 10px;
