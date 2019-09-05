@@ -1,0 +1,29 @@
+.team-member {
+  text-align: center;
+  width: 25%;
+  @media all and (max-width: 768px) {
+    width: 100%;
+  }
+  h3 {
+    font-family: "Darker Grotesque", sans-serif;
+    margin-bottom: 10px;
+  }
+  [id="Color/Palette/Blue-01"] {
+    fill: #36c7bb;
+  }
+  .team-member__icons {
+    display: flex;
+    justify-content: center;
+    a {
+      img {
+        width: 40px;
+        width: 40px;
+        margin: 0 20px;
+        text-align: center;
+      }
+    }
+    p {
+      margin: 10px;
+    }
+  }
+}
