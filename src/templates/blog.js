@@ -2,11 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { default as Prism } from "prismjs"
-// import "prismjs/themes/prism.css"
+import CopyableCodeSnippet from "../components/CopyableCodeSnippet/CopyableCodeSnippet"
 
 import styles from "./blog-template.module.scss"
-import Button from "../components/Button/Button"
 
 export const query = graphql`
   query($slug: String!) {
@@ -21,7 +19,6 @@ export const query = graphql`
   }
 `
 
-// var html = Prism.highlight(myJS, Prism.languages.javascript, "javascript")
 const Blog = props => {
   const { data } = props
   console.log(data.contentfulBlogPost.body.json)
@@ -57,25 +54,18 @@ const Blog = props => {
                       .split("::")[1]
                       .trim()
                     return (
-                      <div className={styles.copyableCodeSnippet}>
-                        <Button theme="solid">Copy</Button>
-                        <pre
-                          style={{
-                            backgroundColor: "#343434",
-                            color: "white",
-                            fontSize: "18px",
-                            maxWidth: "94vw",
-                            overflow: "auto",
-                          }}
-                          dangerouslySetInnerHTML={{
-                            __html: Prism.highlight(
-                              codeValue,
-                              Prism.languages[codeType],
-                              codeType
-                            ),
-                          }}
-                        />
-                      </div>
+                      <CopyableCodeSnippet
+                        codeValue={codeValue}
+                        codeLanguage={codeType}
+                        className={styles.copyableCodeSnippet}
+                        codeStyle={{
+                          backgroundColor: "#343434",
+                          color: "white",
+                          fontSize: "18px",
+                          maxWidth: "94vw",
+                          overflow: "auto",
+                        }}
+                      />
                     )
                   }
 

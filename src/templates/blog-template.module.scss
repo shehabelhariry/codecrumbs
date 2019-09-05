@@ -18,6 +18,15 @@
     color: #111;
     line-height: 1.8rem;
   }
+  h2,
+  h3,
+  h4 {
+    margin-top: 3rem;
+    &:before {
+      content: "[-] ";
+      color: #36c7bb;
+    }
+  }
 }
 
 .copyable-code-snippet {
