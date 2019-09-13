@@ -12,3 +12,18 @@
   padding: 5px 20px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
+
+.copyable-code-snippet {
+  position: relative;
+  button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    opacity: 0;
+  }
+  &:hover {
+    button {
+      opacity: 1;
+    }
+  }
+}

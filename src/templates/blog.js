@@ -57,13 +57,13 @@ const Blog = props => {
                       <CopyableCodeSnippet
                         codeValue={codeValue}
                         codeLanguage={codeType}
-                        className={styles.copyableCodeSnippet}
                         codeStyle={{
                           backgroundColor: "#343434",
                           color: "white",
                           fontSize: "18px",
                           maxWidth: "94vw",
                           overflow: "auto",
+                          borderRadius: "8px",
                         }}
                       />
                     )

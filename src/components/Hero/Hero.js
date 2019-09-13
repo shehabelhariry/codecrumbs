@@ -1,40 +1,93 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import heroStyles from "./Hero.module.scss"
 import Button from "../Button/Button"
+import { useGesture } from "react-use-gesture"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
-import Img from "gatsby-image"
+import { useSprings, animated, interpolate, useSpring } from "react-spring"
+import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
 
-import { graphql } from "gatsby"
+const img1 = require("../../images/codeCrumb.png")
+const codeValue = `const CodeCrumb = () => {
+  const howManyMinutes = 2
+  return (
+    <div>
+      <h1>Learn bits of code daily </h1>
+      <span>less than {howManyMinutes} reading</span>
+    </div>
+  )
+}
+export default CodeCrumb`
 
-const img1 = require("../../pages/5.png")
-const img2 = require("../../pages/1.png")
 const Hero = () => {
+  const [contentIsShown, setContentDisplay] = useState(false)
+  const [codeIsClicked, setCodeIsClicked] = useState(false)
+  const [howClose, setHowClose] = useState(0)
+  useEffect(() => {
+    setTimeout(() => {
+      setContentDisplay(true)
+      setCodeIsClicked(true)
+    }, 600)
+  }, [])
+  const contentProps = useSpring({
+    opacity: contentIsShown ? 1 : 0,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
+  const initialCodePun = useSpring({
+    opacity: 1,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
+  const clickedCodePun = useSpring({
+    // transform: `translateX(${howClose}px)`,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
+
   return (
     <div className={heroStyles.container}>
       <div className={heroStyles.description}>
         <h1>
-          Your Development success is <br />
-          one
-          <Typist>
-            <Typist.Delay ms={1200} />
-            breadcrumb
-            <Typist.Backspace count={10} delay={1200} />
-            codecrumb
-          </Typist>
-          away
+          What is <i className={heroStyles.underlined}>code-related</i>, longer
+          than<i> a tweet</i> but shorter than a blog post ?
+          <animated.h1
+            className={heroStyles.questionAnswer}
+            style={contentProps}
+          >
+            <Typist>
+              <Typist.Delay ms={1200} />
+              Milk?
+              <Typist.Backspace count={10} delay={1200} />
+              A Gohst?
+              <Typist.Backspace count={10} delay={1200} />
+              Dan's Github bio?
+            </Typist>
+          </animated.h1>
         </h1>
-        <p>
-          Learn JS and CSS code tips and tricks from our <br /> collection of
-          awesome code/crumbs
-        </p>
-        <Button as="link" href="/blog">
-          Learn more
-        </Button>
+        {/*    <Button as="link" href="/blog">
+        Learn more
+      </Button>*/}
       </div>
-      <div className={heroStyles.imagesParalex}>
-        <img src={img1} />  
-      </div>
+      <animated.div
+        className={heroStyles.codePun}
+        onMouseMove={e => {
+          setHowClose(e.clientX % 2)
+          console.log(e)
+        }}
+        style={codeIsClicked ? clickedCodePun : initialCodePun}
+      >
+        <CopyableCodeSnippet
+          codeType="javascript"
+          codeStyle={{
+            backgroundColor: "#343434",
+            color: "white",
+            fontSize: "18px",
+            maxWidth: "94vw",
+            overflow: "auto",
+            borderRadius: "8px",
+          }}
+          codeValue={codeValue}
+          codeLanguage={"javascript"}
+        />
+      </animated.div>
     </div>
   )
 }

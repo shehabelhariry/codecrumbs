@@ -1,7 +1,7 @@
 .container {
   max-width: 1344px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto;
   align-items: center;
   min-height: 65vh;
@@ -11,13 +11,50 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  width: 40%;
   font-family: "Darker Grotesque", sans-serif;
   font-size: 1.3rem;
   h1 {
     font-family: "Darker Grotesque", sans-serif;
     font-weight: 500;
   }
+}
+
+.question-answer {
+  margin-top: 20px;
+  background-color: #e8e8e8;
+  padding: 1rem;
+  border-radius: 200px;
+  -webkit-border-radius: 200px;
+  -moz-border-radius: 200px;
+  -ms-border-radius: 200px;
+  -o-border-radius: 200px;
+}
+
+.code-pun {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  width: 40%;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+    pre > {
+      box-shadow: 1px 2px 8px #000000;
+    }
+  }
+
+  transition: 0.4s all ease;
+  // span {
+  //   font-size: 20rem;
+  //   color: #36c7bb;
+  // }
 }
 
 .images-paralex {

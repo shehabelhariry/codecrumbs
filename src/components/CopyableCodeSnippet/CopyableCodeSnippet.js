@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import "./CopyableCodeSnippet.scss"
-import { default as Prism } from "prismjs"
+import Prism from "prismjs"
 import Button from "../../components/Button/Button"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
 const CopyableCodeSnippet = props => {
+  Prism.highlightAll()
   const { codeValue, codeLanguage, codeStyle } = props
   const [isShown, setIsShown] = useState(false)
   const showSuccessToolTip = () => {
@@ -14,7 +15,7 @@ const CopyableCodeSnippet = props => {
     }, 800)
   }
   return (
-    <div {...props}>
+    <div {...props} className="copyable-code-snippet ">
       <div className="copyable-code-snippet-container">
         <div
           className="copyable-code-snippet__success-tooltip"
