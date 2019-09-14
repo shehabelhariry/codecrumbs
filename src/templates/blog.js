@@ -86,6 +86,10 @@ const Blog = props => {
 
                   return <p>{node.content[0].value}</p>
                 },
+                document: node => {
+                  console.log(node)
+                  return <p>hello</p>
+                },
               },
             })}
           </div>

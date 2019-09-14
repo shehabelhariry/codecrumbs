@@ -54,7 +54,7 @@ const Hero = () => {
         <h1>
           What is <i className={heroStyles.underlined}>code-related</i>, longer
           than<i> a tweet</i> but shorter than a blog post ?
-          <h1 className={heroStyles.questionAnswer} style={contentProps}>
+          <div className={heroStyles.questionAnswer} style={contentProps}>
             <Typist>
               <Typist.Delay ms={1200} />
               Milk?
@@ -70,7 +70,7 @@ const Hero = () => {
               alt="done"
               style={notDoneStyles}
             />
-          </h1>
+          </div>
         </h1>
         {/*    <Button as="link" href="/blog">
         Learn more

@@ -14,8 +14,9 @@ const CopyableCodeSnippet = props => {
       setIsShown(false)
     }, 800)
   }
+
   return (
-    <div {...props} className="copyable-code-snippet ">
+    <div className="copyable-code-snippet ">
       <div className="copyable-code-snippet-container">
         <div
           className="copyable-code-snippet__success-tooltip"
