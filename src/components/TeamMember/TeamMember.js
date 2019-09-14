@@ -36,21 +36,13 @@ const TeamMember = ({
         onMouseLeave={changeExpression}
       >
         <a href={linkedIn}>
-          <img src={LinkedInImage} />
+          <img src={LinkedInImage} alt="social media" />
         </a>
-        <a
-          href={github}
-          //   onMouseEnter={changeExpression}
-          //   onMouseLeave={changeExpression}
-        >
-          <img src={GithubImage} />
+        <a href={github}>
+          <img src={GithubImage} alt="social media" />
         </a>
-        <a
-          href={twitter}
-          //   onMouseEnter={changeExpression}
-          //   onMouseLeave={changeExpression}
-        >
-          <img src={twitterImg} />
+        <a href={twitter}>
+          <img src={twitterImg} alt="social media" />
         </a>
       </div>
     </div>

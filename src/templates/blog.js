@@ -37,6 +37,7 @@ const Blog = props => {
                       <img
                         class="img-fluid"
                         src={`${node.data.target.fields.file["en-US"].url}`}
+                        alt="attached"
                       />
                     )
                   }

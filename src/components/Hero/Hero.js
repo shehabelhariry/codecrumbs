@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react"
 import heroStyles from "./Hero.module.scss"
-import Button from "../Button/Button"
-import { useGesture } from "react-use-gesture"
 import Typist from "react-typist"
 import "react-typist/dist/Typist.css"
-import { useSprings, animated, interpolate, useSpring } from "react-spring"
+import { animated, useSpring } from "react-spring"
 import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
+import doneIcon from "../../images/success.png"
 
-const img1 = require("../../images/codeCrumb.png")
-const doneIcon = require("../../images/success.png")
 const codeValue = `const CodeCrumb = () => {
   const howManyMinutes = 2
   return (
@@ -23,7 +20,6 @@ export default CodeCrumb`
 const Hero = () => {
   const [contentIsShown, setContentDisplay] = useState(false)
   const [codeIsClicked, setCodeIsClicked] = useState(false)
-  const [howClose, setHowClose] = useState(0)
   const [done, setDone] = useState(false)
   useEffect(() => {
     setTimeout(() => {
@@ -82,10 +78,6 @@ const Hero = () => {
       </div>
       <animated.div
         className={heroStyles.codePun}
-        onMouseMove={e => {
-          setHowClose(e.clientX % 2)
-          console.log(e)
-        }}
         style={codeIsClicked ? clickedCodePun : initialCodePun}
       >
         <CopyableCodeSnippet
