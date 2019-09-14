@@ -11,9 +11,11 @@ const BlogPreview = ({ post }) => {
             {post.title}
           </Link>
         </h3>
-        {post.previewImage ? <img src={post.previewImage.file.url} /> : null}
+        {post.previewImage ? (
+          <img src={post.previewImage.file.url} alt="post preview" />
+        ) : null}
         <span className={styles.blogInfo}>
-          By <a>Shehab Elhariry</a> on {post.date}
+          By <a href="#!">Shehab Elhariry</a> on {post.date}
         </span>
       </div>
     </div>

@@ -21,6 +21,7 @@
 }
 
 .question-answer {
+  position: relative;
   margin-top: 20px;
   background-color: #e8e8e8;
   padding: 1rem;
@@ -29,6 +30,11 @@
   -moz-border-radius: 200px;
   -ms-border-radius: 200px;
   -o-border-radius: 200px;
+  .done-icon {
+    position: absolute;
+    right: 1rem;
+    width: 50px;
+  }
 }
 
 .code-pun {
@@ -49,7 +55,6 @@
       box-shadow: 1px 2px 8px #000000;
     }
   }
-
   transition: 0.4s all ease;
   // span {
   //   font-size: 20rem;

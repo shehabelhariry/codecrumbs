@@ -8,6 +8,7 @@ import { useSprings, animated, interpolate, useSpring } from "react-spring"
 import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
 
 const img1 = require("../../images/codeCrumb.png")
+const doneIcon = require("../../images/success.png")
 const codeValue = `const CodeCrumb = () => {
   const howManyMinutes = 2
   return (
@@ -23,11 +24,15 @@ const Hero = () => {
   const [contentIsShown, setContentDisplay] = useState(false)
   const [codeIsClicked, setCodeIsClicked] = useState(false)
   const [howClose, setHowClose] = useState(0)
+  const [done, setDone] = useState(false)
   useEffect(() => {
     setTimeout(() => {
       setContentDisplay(true)
       setCodeIsClicked(true)
     }, 600)
+    setTimeout(() => {
+      setDone(true)
+    }, 12200)
   }, [])
   const contentProps = useSpring({
     opacity: contentIsShown ? 1 : 0,
@@ -42,25 +47,34 @@ const Hero = () => {
     // marginTop: contentIsShown ? 0 : -1000,
   })
 
+  const notDoneStyles = useSpring({
+    transform: `rotate(${done ? 0 : -40}deg)`,
+    opacity: `${done ? 1 : 0}`,
+  })
+
   return (
     <div className={heroStyles.container}>
       <div className={heroStyles.description}>
         <h1>
           What is <i className={heroStyles.underlined}>code-related</i>, longer
           than<i> a tweet</i> but shorter than a blog post ?
-          <animated.h1
-            className={heroStyles.questionAnswer}
-            style={contentProps}
-          >
+          <h1 className={heroStyles.questionAnswer} style={contentProps}>
             <Typist>
               <Typist.Delay ms={1200} />
               Milk?
               <Typist.Backspace count={10} delay={1200} />
               A Gohst?
-              <Typist.Backspace count={10} delay={1200} />
+              <Typist.Backspace count={20} delay={1200} />
               Dan's Github bio?
+              <Typist.Backspace count={20} delay={1200} />a Codecrumb
             </Typist>
-          </animated.h1>
+            <animated.img
+              className={heroStyles.doneIcon}
+              src={doneIcon}
+              alt="done"
+              style={notDoneStyles}
+            />
+          </h1>
         </h1>
         {/*    <Button as="link" href="/blog">
         Learn more
