@@ -21,7 +21,7 @@ export const query = graphql`
 
 const Blog = props => {
   const { data } = props
-  console.log(data.contentfulBlogPost.body.json)
+  // console.log(data.contentfulBlogPost.body.json)
   return (
     <Layout>
       <div className={styles.container}>
@@ -29,69 +29,70 @@ const Blog = props => {
           <h1>{data.contentfulBlogPost.title}</h1>
           <p>{data.contentfulBlogPost.date}</p>
           <div className={styles.blog}>
-            {documentToReactComponents(data.contentfulBlogPost.body.json, {
-              renderNode: {
-                "embedded-asset-block": node => {
-                  if (node.data.target.file) {
-                    return (
-                      <img
-                        class="img-fluid"
-                        src={`${node.data.target.fields.file["en-US"].url}`}
-                        alt="attached"
-                      />
-                    )
-                  }
-                },
-                paragraph: node => {
-                  if (
-                    node &&
-                    node.content &&
-                    node.content[0].marks &&
-                    node.content[0].marks[0] &&
-                    node.content[0].marks[0].type === "code"
-                  ) {
-                    const codeType = node.content[0].value.split("::")[0]
-                    const codeValue = node.content[0].value
-                      .split("::")[1]
-                      .trim()
-                    return (
-                      <CopyableCodeSnippet
-                        codeValue={codeValue}
-                        codeLanguage={codeType}
-                        codeStyle={{
-                          backgroundColor: "#343434",
-                          color: "white",
-                          fontSize: "18px",
-                          maxWidth: "94vw",
-                          overflow: "auto",
-                          borderRadius: "8px",
-                        }}
-                      />
-                    )
-                  }
+            {data &&
+              documentToReactComponents(data.contentfulBlogPost.body.json, {
+                renderNode: {
+                  "embedded-asset-block": node => {
+                    if (node.data.target.file) {
+                      return (
+                        <img
+                          class="img-fluid"
+                          src={`${node.data.target.fields.file["en-US"].url}`}
+                          alt="attached"
+                        />
+                      )
+                    }
+                  },
+                  paragraph: node => {
+                    if (
+                      node &&
+                      node.content &&
+                      node.content[0].marks &&
+                      node.content[0].marks[0] &&
+                      node.content[0].marks[0].type === "code"
+                    ) {
+                      const codeType = node.content[0].value.split("::")[0]
+                      const codeValue = node.content[0].value
+                        .split("::")[1]
+                        .trim()
+                      return (
+                        <CopyableCodeSnippet
+                          codeValue={codeValue}
+                          codeLanguage={codeType}
+                          codeStyle={{
+                            backgroundColor: "#343434",
+                            color: "white",
+                            fontSize: "18px",
+                            maxWidth: "94vw",
+                            overflow: "auto",
+                            borderRadius: "8px",
+                          }}
+                        />
+                      )
+                    }
 
-                  if (node.content.length > 1) {
-                    const container = []
-                    node.content.forEach((item, index) => {
-                      if (item.nodeType === "hyperlink") {
-                        container.push(
-                          <a href={item.data.uri}>{item.data.uri}</a>
-                        )
-                      } else {
-                        container.push(<p>{item.value}</p>)
-                      }
-                    })
-                    return <p>{container}</p>
-                  }
+                    if (node.content.length > 1) {
+                      const container = []
+                      node.content.forEach((item, index) => {
+                        if (item.nodeType === "hyperlink") {
+                          container.push(
+                            <a href={item.data.uri}>{item.data.uri}</a>
+                          )
+                        } else {
+                          container.push(<p>{item.value}</p>)
+                        }
+                      })
+                      return <p>{container}</p>
+                    }
 
-                  return <p>{node.content[0].value}</p>
+                    return <p>{node.content[0].value}</p>
+                  },
+                  document: node => {
+                    // console.log(node)
+                    return <p>hello</p>
+                  },
                 },
-                document: node => {
-                  console.log(node)
-                  return <p>hello</p>
-                },
-              },
-            })}
+              })}
           </div>
         </div>
         <div></div>
