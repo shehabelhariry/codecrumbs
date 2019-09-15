@@ -50,6 +50,8 @@ exports.createPages = async function({ actions, graphql }) {
       }
     }
   `)
+
+  console.log(JSON.stringify(contentFullData, null, 2))
   contentFullData.data.allContentfulBlogPost.nodes.forEach(edge => {
     const slug = edge.slug
     actions.createPage({

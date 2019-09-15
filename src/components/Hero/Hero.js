@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react"
 import heroStyles from "./Hero.module.scss"
-// import Typist from "react-typist"
-// import "react-typist/dist/Typist.css"
-// import { animated, useSpring } from "react-spring"
-// import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
-// import doneIcon from "../../images/success.png"
+import Typist from "react-typist"
+import "react-typist/dist/Typist.css"
+import { animated, useSpring } from "react-spring"
+import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
+import doneIcon from "../../images/success.png"
 
 const codeValue = `const CodeCrumb = () => {
   const howManyMinutes = 2
@@ -18,43 +18,38 @@ const codeValue = `const CodeCrumb = () => {
 export default CodeCrumb`
 
 const Hero = () => {
-  // const [contentIsShown, setContentDisplay] = useState(false)
-  // const [codeIsClicked, setCodeIsClicked] = useState(false)
-  // const [done, setDone] = useState(false)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setContentDisplay(true)
-  //     setCodeIsClicked(true)
-  //   }, 600)
-  //   setTimeout(() => {
-  //     setDone(true)
-  //   }, 12200)
-  // }, [])
-  // const contentProps = useSpring({
-  //   opacity: contentIsShown ? 1 : 0,
-  //   // marginTop: contentIsShown ? 0 : -1000,
-  // })
-  // const initialCodePun = useSpring({
-  //   opacity: 1,
-  //   // marginTop: contentIsShown ? 0 : -1000,
-  // })
-  // const clickedCodePun = useSpring({
-  //   // transform: `translateX(${howClose}px)`,
-  //   // marginTop: contentIsShown ? 0 : -1000,
-  // })
+  const [contentIsShown, setContentDisplay] = useState(false)
+  const [codeIsClicked, setCodeIsClicked] = useState(false)
+  const [done, setDone] = useState(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setContentDisplay(true)
+      setCodeIsClicked(true)
+    }, 600)
+    setTimeout(() => {
+      setDone(true)
+    }, 12200)
+  }, [])
+  const contentProps = useSpring({
+    opacity: contentIsShown ? 1 : 0,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
+  const initialCodePun = useSpring({
+    opacity: 1,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
+  const clickedCodePun = useSpring({
+    // transform: `translateX(${howClose}px)`,
+    // marginTop: contentIsShown ? 0 : -1000,
+  })
 
-  // const notDoneStyles = useSpring({
-  //   transform: `rotate(${done ? 0 : -40}deg)`,
-  //   opacity: `${done ? 1 : 0}`,
-  // })
+  const notDoneStyles = useSpring({
+    transform: `rotate(${done ? 0 : -40}deg)`,
+    opacity: `${done ? 1 : 0}`,
+  })
 
   return (
     <div className={heroStyles.container}>
-      Hello
-      {/*
-      
-      
-
       <div className={heroStyles.description}>
         <h1>
           What is <i className={heroStyles.underlined}>code-related</i>, longer
@@ -95,7 +90,7 @@ const Hero = () => {
           codeValue={codeValue}
           codeLanguage={"javascript"}
         />
-      </animated.div>  */}
+      </animated.div>
     </div>
   )
 }
