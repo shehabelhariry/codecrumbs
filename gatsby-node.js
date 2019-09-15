@@ -36,26 +36,26 @@ exports.createPages = async function({ actions, graphql }) {
   //     context: { slug: slug },
   //   })
   // })
-  //   const contentFullData = await graphql(`
-  //     query {
-  //       allContentfulBlogPost {
-  //         nodes {
-  //           title
-  //           date
-  //           slug
-  //           body {
-  //             body
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `)
-  //   contentFullData.data.allContentfulBlogPost.nodes.forEach(edge => {
-  //     const slug = edge.slug
-  //     actions.createPage({
-  //       path: `blog/${slug}`,
-  //       component: require.resolve(`./src/templates/blog.js`),
-  //       context: { slug: slug },
-  //     })
-  //   })
+  const contentFullData = await graphql(`
+    query {
+      allContentfulBlogPost {
+        nodes {
+          title
+          date
+          slug
+          body {
+            body
+          }
+        }
+      }
+    }
+  `)
+  contentFullData.data.allContentfulBlogPost.nodes.forEach(edge => {
+    const slug = edge.slug
+    actions.createPage({
+      path: `blog/${slug}`,
+      component: require.resolve(`./src/templates/blog.js`),
+      context: { slug: slug },
+    })
+  })
 }
