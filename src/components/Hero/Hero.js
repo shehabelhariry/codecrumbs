@@ -50,8 +50,7 @@ const Hero = () => {
 
   return (
     <div className={heroStyles.container}>
-      sadasd
-      {/* <div className={heroStyles.description}>
+      <div className={heroStyles.description}>
         <h1>
           What is <i className={heroStyles.underlined}>code-related</i>, longer
           than<i> a tweet</i> but shorter than a blog post ?
@@ -91,7 +90,7 @@ const Hero = () => {
           codeValue={codeValue}
           codeLanguage={"javascript"}
         />
-      </animated.div> */}
+      </animated.div>
     </div>
   )
 }
