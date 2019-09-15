@@ -5,7 +5,6 @@ import Button from "../../components/Button/Button"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
 const CopyableCodeSnippet = props => {
-  Prism.highlightAll()
   const { codeValue, codeLanguage, codeStyle } = props
   const [isShown, setIsShown] = useState(false)
   const showSuccessToolTip = () => {

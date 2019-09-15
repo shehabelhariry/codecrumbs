@@ -2,6 +2,8 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+
 import CopyableCodeSnippet from "../components/CopyableCodeSnippet/CopyableCodeSnippet"
 
 import styles from "./blog-template.module.scss"
@@ -21,7 +23,7 @@ export const query = graphql`
 
 const customRenderOptions = {
   renderNode: {
-    "embedded-asset-block": node => {
+    [BLOCKS.EMBEDDED_ASSET]: node => {
       if (node.data.target.file) {
         return (
           <img
@@ -32,7 +34,7 @@ const customRenderOptions = {
         )
       }
     },
-    paragraph: node => {
+    [BLOCKS.PARAGRAPH]: node => {
       if (
         node &&
         node.content &&
@@ -42,6 +44,7 @@ const customRenderOptions = {
       ) {
         const codeType = node.content[0].value.split("::")[0]
         const codeValue = node.content[0].value.split("::")[1].trim()
+        // return <span>sadasdsa</span>
         return (
           <CopyableCodeSnippet
             codeValue={codeValue}
@@ -77,22 +80,28 @@ const customRenderOptions = {
 
 const Blog = props => {
   const { data } = props
-  console.log(data.contentfulBlogPost.body.json)
+  console.log(data)
+  const renderedReactComponents = documentToReactComponents(
+    data.contentfulBlogPost.body.json,
+    // document
+    customRenderOptions
+    // {
+    //   renderNode: {
+    //     document: node => {
+    //       return documentToReactComponents(node, customRenderOptions)
+    //     },
+    //   },
+    // }
+  )
+
+  // console.log(renderedReactComponents)
   return (
     <Layout>
       <div className={styles.container}>
         <div className={styles.blogTemplate}>
           <h1>{data.contentfulBlogPost.title}</h1>
           <p>{data.contentfulBlogPost.date}</p>
-          <div className={styles.blog}>
-            {documentToReactComponents(data.contentfulBlogPost.body.json, {
-              renderNode: {
-                document: node => {
-                  return documentToReactComponents(node, customRenderOptions)
-                },
-              },
-            })}
-          </div>
+          <div className={styles.blog}>{renderedReactComponents}</div>
         </div>
         <div></div>
       </div>
