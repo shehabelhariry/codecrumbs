@@ -28,7 +28,7 @@ const Hero = () => {
     }, 600)
     setTimeout(() => {
       setDone(true)
-    }, 12200)
+    }, 7900)
   }, [])
   const contentProps = useSpring({
     opacity: contentIsShown ? 1 : 0,
@@ -44,7 +44,7 @@ const Hero = () => {
   })
 
   const notDoneStyles = useSpring({
-    transform: `rotate(${done ? 0 : -40}deg)`,
+    transform: `rotate(${done ? 0 : -100}deg)`,
     opacity: `${done ? 1 : 0}`,
   })
 
@@ -57,12 +57,10 @@ const Hero = () => {
           <div className={heroStyles.questionAnswer} style={contentProps}>
             <Typist>
               <Typist.Delay ms={1200} />
-              Milk?
+              Alto
               <Typist.Backspace count={10} delay={1200} />
-              A Gohst?
-              <Typist.Backspace count={20} delay={1200} />
-              Dan's Github bio?
-              <Typist.Backspace count={20} delay={1200} />a Codecrumb
+              a Github bio?
+              <Typist.Backspace count={15} delay={1200} />a Codecrumb
             </Typist>
             <animated.img
               className={heroStyles.doneIcon}
@@ -73,24 +71,37 @@ const Hero = () => {
           </div>
         </h1>
       </div>
-      <animated.div
-        className={heroStyles.codePun}
-        style={codeIsClicked ? clickedCodePun : initialCodePun}
-      >
-        <CopyableCodeSnippet
-          codeType="javascript"
-          codeStyle={{
-            backgroundColor: "#343434",
-            color: "white",
-            fontSize: "18px",
-            maxWidth: "94vw",
-            overflow: "auto",
-            borderRadius: "8px",
-          }}
-          codeValue={codeValue}
-          codeLanguage={"javascript"}
-        />
-      </animated.div>
+      {/* <div>
+        <h3>Latest Codecrumbs</h3>
+        <div>
+          <h2>CSS attribute Selectors</h2>
+          <img src="asdasd" alt="CSS attribute selector" />
+          <p>
+            While working as a web developer for the last 2 years, I discovered
+            something about CSS3 attribute selectors. In spite of them being
+            nifty little helpers, the majority of people using CSS are not using
+            them at all...
+          </p>
+        </div>
+      </div> */}
+
+      {/* <animated.div
+      className={heroStyles.codePun}
+      style={codeIsClicked ? clickedCodePun : initialCodePun}
+    >
+      <CopyableCodeSnippet
+        codeStyle={{
+          backgroundColor: "#343434",
+          color: "white",
+          fontSize: "18px",
+          maxWidth: "94vw",
+          overflow: "auto",
+          borderRadius: "8px",
+        }}
+        codeValue={codeValue}
+        codeLanguage={"jsx"}
+      />
+    </animated.div> */}
     </div>
   )
 }

@@ -83,18 +83,9 @@ const Blog = props => {
   console.log(data)
   const renderedReactComponents = documentToReactComponents(
     data.contentfulBlogPost.body.json,
-    // document
     customRenderOptions
-    // {
-    //   renderNode: {
-    //     document: node => {
-    //       return documentToReactComponents(node, customRenderOptions)
-    //     },
-    //   },
-    // }
   )
 
-  // console.log(renderedReactComponents)
   return (
     <Layout>
       <div className={styles.container}>

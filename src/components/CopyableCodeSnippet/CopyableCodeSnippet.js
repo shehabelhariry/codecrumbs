@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./CopyableCodeSnippet.scss"
 import Prism from "prismjs"
 import Button from "../../components/Button/Button"
 import { CopyToClipboard } from "react-copy-to-clipboard"
+
+import "prismjs/components/prism-jsx.min"
 
 const CopyableCodeSnippet = props => {
   const { codeValue, codeLanguage, codeStyle } = props
@@ -13,6 +15,10 @@ const CopyableCodeSnippet = props => {
       setIsShown(false)
     }, 800)
   }
+
+  useEffect(() => {
+    setTimeout(() => Prism.highlightAll(), 0)
+  }, [])
 
   return (
     <div className="copyable-code-snippet ">
@@ -32,16 +38,9 @@ const CopyableCodeSnippet = props => {
           <Button>Copy</Button>
         </CopyToClipboard>
       </div>
-      <pre
-        style={codeStyle}
-        dangerouslySetInnerHTML={{
-          __html: Prism.highlight(
-            codeValue,
-            Prism.languages[codeLanguage],
-            codeLanguage
-          ),
-        }}
-      />
+      <pre style={codeStyle}>
+        <code className={`language-${codeLanguage}`}>{codeValue.trim()}</code>
+      </pre>
     </div>
   )
 }
