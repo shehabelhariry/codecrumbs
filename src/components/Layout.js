@@ -4,7 +4,6 @@ import Header from "../components/Header"
 
 import "../styles/index.scss"
 import LayoutStyles from "./Layout.module.scss"
-import wavyBackground from "../pages/bk.png"
 
 const Layout = props => {
   return (
