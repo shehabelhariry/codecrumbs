@@ -44,11 +44,13 @@ const ContactPage = () => {
               name="Contact Form"
               method="post"
               action="thank-you"
+              data-netlify-recaptcha="true"
             >
               <input type="hidden" name="form-name" value="Contact Form" />
               <CustomInput name="subject" label="Subject" />
               <CustomInput name="email" label="Email" type="email" />
               <CustomInput name="message" type="textarea" label="Message" />
+              <div data-netlify-recaptcha="true"></div>
               <Button>Submit</Button>
             </form>
           </div>
