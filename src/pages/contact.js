@@ -50,7 +50,12 @@ const ContactPage = () => {
               <CustomInput name="message" type="textarea" label="Message" />
               <Button>Submit</Button>
             </form> */}
-            <form name="contact" method="POST" data-netlify="true">
+            <form
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              action="thank-you"
+            >
               <p>
                 <label>
                   Your Name: <input type="text" name="name" />
