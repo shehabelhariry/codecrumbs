@@ -37,7 +37,9 @@ const ContactPage = () => {
             github="https://github.com/shehabelhariry"
           />
           <div className={styles.contactFormContainer}>
-            <p>Drop me a word</p>
+            <p style={{ fontSize: "1.5rem", paddingBottom: "20px" }}>
+              Drop me a word
+            </p>
             <form
               className={styles.contactForm}
               data-netlify="true"
@@ -51,7 +53,7 @@ const ContactPage = () => {
               <CustomInput name="email" label="Email" type="email" />
               <CustomInput name="message" type="textarea" label="Message" />
               <div data-netlify-recaptcha="true"></div>
-              <Button>Submit</Button>
+              <Button appearance="primary">Submit</Button>
             </form>
           </div>
         </div>

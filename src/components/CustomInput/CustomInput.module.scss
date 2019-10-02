@@ -9,9 +9,13 @@
   textarea,
   input {
     flex: 1;
-    background-color: #e8e8e8;
     padding: 1rem;
+    outline: none;
     border-radius: 5px;
     border: 0;
+    border: 1px solid #c1c7c7;
+    &:focus {
+      border: 1px solid #36c7bb;
+    }
   }
 }

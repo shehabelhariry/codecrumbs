@@ -3,7 +3,7 @@ import Link from "gatsby-plugin-transition-link/AniLink"
 import buttonStyles from "./Button.module.scss"
 
 const Button = originalButtonProps => {
-  const { children, as = "button", href } = originalButtonProps
+  const { children, as = "button", href, appearance } = originalButtonProps
   const CustomTag = as
   const ButtonComponent = props => {
     if (as === "link") {
@@ -26,7 +26,9 @@ const Button = originalButtonProps => {
   return (
     <ButtonComponent
       {...originalButtonProps}
-      className={buttonStyles.codeCrumbsButton}
+      className={`${buttonStyles.codeCrumbsButton} ${
+        appearance === buttonStyles.primary ? "primary" : ""
+      } `}
     />
   )
 }
