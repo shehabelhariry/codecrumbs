@@ -6,7 +6,7 @@ const CustomInput = ({ name, type, label }) => {
     type === "textarea" ? (
       <textarea name={name} placeholder={label}></textarea>
     ) : (
-      <input name={name} type="text" placeholder={label} />
+      <input name={name} type={type || "text"} placeholder={label} />
     )
   console.log(styles)
   return <div className={styles.customInput}>{input}</div>

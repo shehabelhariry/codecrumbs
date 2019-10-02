@@ -36,35 +36,22 @@ const ContactPage = () => {
             twitter="https://twitter.com/cheha6"
             github="https://github.com/shehabelhariry"
           />
-          <form
-            className={styles.contactForm}
-            data-netlify="true"
-            name="contact"
-            method="POST"
-          >
-            <CustomInput name="subject" label="Subject" />
-            <CustomInput name="message" type="textarea" label="Message" />
-            <Button>Submit</Button>
-          </form>
+          <div className={styles.contactFormContainer}>
+            <p>Drop me a word</p>
+            <form
+              className={styles.contactForm}
+              data-netlify="true"
+              name="contact"
+              method="post"
+              action="/contact"
+            >
+              <CustomInput name="subject" label="Subject" />
+              <CustomInput name="email" label="Email" type="email" />
+              <CustomInput name="message" type="textarea" label="Message" />
+              <Button>Submit</Button>
+            </form>
+          </div>
         </div>
-        {/* <form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          action="/success"
-        >
-          <div className="form-group">
-            <label for="subject">Subject</label>
-            <input name="subject" />
-          </div>
-          <div className="form-group">
-            <label for="message">Message</label>
-            <textarea name="subject" />
-          </div>
-          <p>
-            <button type="submit">Send</button>
-          </p>
-        </form> */}
       </div>
     </Layout>
   )

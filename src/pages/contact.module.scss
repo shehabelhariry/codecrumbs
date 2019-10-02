@@ -1,13 +1,16 @@
 .contact-form {
-  width: 50%;
   button {
     float: right;
   }
 }
 
+.contact-form-container {
+  width: 50%;
+}
+
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-radius: 10px;
   padding-bottom: 20px;
