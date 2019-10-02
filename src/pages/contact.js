@@ -38,51 +38,18 @@ const ContactPage = () => {
           />
           <div className={styles.contactFormContainer}>
             <p>Drop me a word</p>
-            {/* <form
+            <form
               className={styles.contactForm}
               data-netlify="true"
-              name="contact"
+              name="Contact Form"
               method="post"
-              action="/contact"
+              action="thank-you"
             >
+              <input type="hidden" name="form-name" value="Contact Form" />
               <CustomInput name="subject" label="Subject" />
               <CustomInput name="email" label="Email" type="email" />
               <CustomInput name="message" type="textarea" label="Message" />
               <Button>Submit</Button>
-            </form> */}
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              action="thank-you"
-            >
-              <p>
-                <label>
-                  Your Name: <input type="text" name="name" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your Email: <input type="email" name="email" />
-                </label>
-              </p>
-              <p>
-                <label>
-                  Your Role:{" "}
-                  <select name="role[]" multiple>
-                    <option value="leader">Leader</option>
-                    <option value="follower">Follower</option>
-                  </select>
-                </label>
-              </p>
-              <p>
-                <label>
-                  Message: <textarea name="message"></textarea>
-                </label>
-              </p>
-              <p>
-                <button type="submit">Send</button>
-              </p>
             </form>
           </div>
         </div>
