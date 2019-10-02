@@ -1,0 +1,14 @@
+.contact-form {
+  width: 50%;
+  button {
+    float: right;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}

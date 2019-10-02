@@ -67,7 +67,7 @@ const Header = () => {
               Crumbs
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link
               className={headerStyles.link}
               paintDrip
@@ -77,7 +77,7 @@ const Header = () => {
             >
               Team
             </Link>
-          </li>
+          </li> */}
           <li>
             <Button href="/contact" as="link">
               Say Hi

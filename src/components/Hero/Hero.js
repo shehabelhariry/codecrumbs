@@ -85,23 +85,23 @@ const Hero = () => {
         </div>
       </div> */}
 
-      {/* <animated.div
-      className={heroStyles.codePun}
-      style={codeIsClicked ? clickedCodePun : initialCodePun}
-    >
-      <CopyableCodeSnippet
-        codeStyle={{
-          backgroundColor: "#343434",
-          color: "white",
-          fontSize: "18px",
-          maxWidth: "94vw",
-          overflow: "auto",
-          borderRadius: "8px",
-        }}
-        codeValue={codeValue}
-        codeLanguage={"jsx"}
-      />
-    </animated.div> */}
+      <animated.div
+        className={heroStyles.codePun}
+        style={codeIsClicked ? clickedCodePun : initialCodePun}
+      >
+        <CopyableCodeSnippet
+          codeStyle={{
+            backgroundColor: "#343434",
+            color: "white",
+            fontSize: "18px",
+            maxWidth: "94vw",
+            overflow: "auto",
+            borderRadius: "8px",
+          }}
+          codeValue={codeValue}
+          codeLanguage={"jsx"}
+        />
+      </animated.div>
     </div>
   )
 }

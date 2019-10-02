@@ -1,0 +1,17 @@
+.custom-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  //   label {
+  //     min-width: 200px;
+  //   }
+  textarea,
+  input {
+    flex: 1;
+    background-color: #e8e8e8;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 0;
+  }
+}
