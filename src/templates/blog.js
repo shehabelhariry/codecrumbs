@@ -2,16 +2,31 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
+import fbIcon from "../images/fb.png"
+import twiiterIcon from "../images/twitter.png"
 
 import CopyableCodeSnippet from "../components/CopyableCodeSnippet/CopyableCodeSnippet"
 
 import styles from "./blog-template.module.scss"
+import FeaturedBlogTitle from "../components/FeaturedBlogTitle/FeaturedBlogTitle"
 
 export const query = graphql`
   query($slug: String!) {
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      color
+      author
+      authorImg {
+        file {
+          url
+        }
+      }
+      previewImage {
+        file {
+          url
+        }
+      }
       date(formatString: "DD MMMM YYYY")
       slug
       body {
@@ -90,11 +105,27 @@ const Blog = props => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.blogTemplate}>
-          <h1>{data.contentfulBlogPost.title}</h1>
-          <p>{data.contentfulBlogPost.date}</p>
-          <div className={styles.blog}>{renderedReactComponents}</div>
+          <FeaturedBlogTitle
+            postTitle={data.contentfulBlogPost.title}
+            isFeatured={false}
+            postImg={data.contentfulBlogPost.previewImage.file.url}
+            postColor={data.contentfulBlogPost.color}
+            postAuthor={data.contentfulBlogPost.author}
+            postAuthorImg={data.contentfulBlogPost.authorImg.file.url}
+            date={data.contentfulBlogPost.date}
+          />
+          <div className={styles.blogWrappper}>
+            <div className={styles.socialMediaIcons}>
+              <a href="#!" className={styles.socialMediaIcon}>
+                <img src={fbIcon} alt="facebook Icon" />
+              </a>
+              <a href="#!" className={styles.socialMediaIcon}>
+                <img src={twiiterIcon} alt="twitter Icon" />
+              </a>
+            </div>
+            <div className={styles.blog}>{renderedReactComponents}</div>
+          </div>
         </div>
-        <div></div>
       </div>
     </Layout>
   )

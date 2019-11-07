@@ -1,0 +1,83 @@
+.featured-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 50vh;
+}
+
+.featured {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  h3 {
+    width: 80%;
+    a {
+      color: white;
+      line-height: 50px;
+      font-size: 60px;
+      text-decoration: none;
+      font-family: "Darker Grotesque", sans-serif;
+      text-transform: capitalize;
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+  img {
+    width: 20%;
+    display: inline-block;
+  }
+}
+
+.featured-tag {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.author-name {
+  font-weight: 700;
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.author-info {
+  display: flex;
+  color: #36c7bb;
+  font-size: 3.7rem;
+  &:after {
+    content: "]";
+  }
+  &:before {
+    content: "[";
+  }
+}
+
+.author-img {
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+}
+
+.post-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  font-size: 0.9rem;
+  display: block;
+  font-weight: 600;
+}
+
+.post-details-container {
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1rem;
+}

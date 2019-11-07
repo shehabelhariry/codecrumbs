@@ -5,41 +5,30 @@ import styles from "./blog-preview.module.scss"
 const BlogPreview = ({ post }) => {
   console.log(post)
   return (
-    <div className={styles.blogContainer}>
-      <div className="box">
-        {post.previewImage ? (
-          <div
-            style={{
-              backgroundImage: `url(${post.previewImage.file.url})`,
-              backgroundSize: "cover",
-              height: "300px",
-              backgroundPosition: "center",
-            }}
-          ></div>
-        ) : null}
-        <div className={styles.infoCircle}>
-          <span>2 min</span>
-        </div>
-        <div className={styles.blogPreviewContentContainer}>
-          <div className={styles.tagsContainer}>
-            <span className={styles.tag}>CSS</span>
-            <span className={styles.tag}>HTML</span>
+    <Link className={styles.blogContainer} to={`/blog/${post.slug}`} fade>
+      <div>
+        <div className="box">
+          {post.previewImage ? (
+            <div
+              style={{
+                backgroundImage: `url(${post.previewImage.file.url})`,
+                backgroundSize: "160px",
+                height: "240px",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+                backgroundColor: post.color,
+                borderTopLeftRadius: "4px",
+                borderTopRightRadius: "4px",
+              }}
+            ></div>
+          ) : null}
+          <div className={styles.blogPreviewContentContainer}>
+            <div className={styles.tag}>{post.tag}</div>
+            <h3 className={styles.blogTitle}>{post.title}</h3>
           </div>
-          <h3 className={styles.blogTitle}>
-            <Link to={`/blog/${post.slug}`} fade>
-              {post.title}
-            </Link>
-          </h3>
-          <p></p>
-          {/* <div className={styles.blogInfo}>
-            <p>
-              <i>Clock</i> 2 minute read
-            </p>
-            <p>Author: Shehab Elhariry</p>
-          </div> */}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

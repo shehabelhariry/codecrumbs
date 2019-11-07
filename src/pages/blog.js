@@ -13,6 +13,8 @@ const BlogPage = () => {
           title
           date(formatString: "DD MMMM YYYY")
           slug
+          color
+          tag
           previewImage {
             file {
               url

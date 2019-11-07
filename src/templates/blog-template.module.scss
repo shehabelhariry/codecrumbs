@@ -1,8 +1,4 @@
 .container {
-  max-width: 1344px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
   @media all and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -10,6 +6,16 @@
 
 .blog-template {
   overflow: auto;
+}
+
+.blog-wrappper {
+  margin: 0 auto;
+  grid-template-columns: 1fr 6fr 1fr;
+  display: grid;
+  max-width: 1000px;
+  padding-top: 2rem;
+  position: sticky;
+  top: 0px;
 }
 
 .blog {
@@ -26,5 +32,25 @@
       content: "[-] ";
       color: #36c7bb;
     }
+  }
+}
+
+.social-media-icons {
+  height: 90px;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.social-media-icon {
+  display: inline-block;
+  img {
+    width: 32px;
+    display: inline-block;
+    margin: 0;
   }
 }
