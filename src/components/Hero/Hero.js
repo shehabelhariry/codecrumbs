@@ -39,7 +39,7 @@ const Hero = () => {
         postColor={blogPosts.allContentfulBlogPost.nodes[0].color}
       />
       <div className={heroStyles.blogPostsContainer}>
-        {blogPosts.allContentfulBlogPost.nodes.map(post => {
+        {blogPosts.allContentfulBlogPost.nodes.slice(1).map(post => {
           return <BlogPreview post={post} key={post.slug} />
         })}
       </div>
