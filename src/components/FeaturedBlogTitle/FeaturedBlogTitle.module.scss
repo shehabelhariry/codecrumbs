@@ -10,6 +10,10 @@
   align-items: center;
   justify-content: space-between;
   max-width: 1000px;
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px;
+  }
   h3 {
     width: 80%;
     a {
@@ -23,11 +27,22 @@
         text-decoration: underline;
         text-decoration-color: rgba(255, 255, 255, 0.4);
       }
+      @media all and (max-width: 768px) {
+        font-size: 40px;
+        line-height: 44px;
+      }
+    }
+    @media all and (max-width: 768px) {
+      width: 100%;
+      padding: 0 20px;
     }
   }
   img {
     width: 20%;
     display: inline-block;
+    @media all and (max-width: 768px) {
+      width: 40%;
+    }
   }
 }
 
