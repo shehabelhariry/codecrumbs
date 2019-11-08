@@ -56,7 +56,7 @@ const Header = () => {
               Our Work
             </Link>
           </li> */}
-          <li>
+          {/*<li>
             <Link
               className={headerStyles.link}
               paintDrip
@@ -66,7 +66,7 @@ const Header = () => {
             >
               Crumbs
             </Link>
-          </li>
+          </li>*/}
           {/* <li>
             <Link
               className={headerStyles.link}

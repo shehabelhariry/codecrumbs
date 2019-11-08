@@ -40,6 +40,9 @@
   width: 100%;
   h1 {
     padding: 0 1rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
     .title {
       font-size: 1.5rem;
       color: #36c7bb;
@@ -55,8 +58,10 @@
     li {
       list-style: none;
       margin-left: 2rem;
-
+      margin-bottom: 0;
+      display: inline-block;
       a {
+        display: inline-block;
         text-decoration: none;
         font-size: 0.9rem;
         font-family: "Darker Grotesque", sans-serif;
