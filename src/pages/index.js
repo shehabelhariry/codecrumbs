@@ -8,7 +8,10 @@ const IndexPage = () => {
   return (
     <Layout>
       <Helmet>
-        <meta property="og:image" content={Logo} />
+        <meta
+          property="og:image"
+          content={`https://codecrumbs.netlify.com${Logo}`}
+        />
       </Helmet>
       <Hero />
     </Layout>
