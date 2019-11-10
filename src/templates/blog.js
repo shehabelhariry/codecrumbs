@@ -118,6 +118,16 @@ const Blog = props => {
               property="og:image"
               content={data.contentfulBlogPost.socialMediaImg.file.url}
             />
+            <meta property="og:title" content={data.contentfulBlogPost.title} />
+            <meta
+              name="twitter:image"
+              content={data.contentfulBlogPost.socialMediaImg.file.url}
+            />
+            <meta
+              name="twitter:title"
+              content={data.contentfulBlogPost.title}
+            />
+            <meta property="og:site_name" content="codecrumbs"></meta>
           </Helmet>
           <FeaturedBlogTitle
             postTitle={data.contentfulBlogPost.title}
