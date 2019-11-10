@@ -14,6 +14,7 @@ import CopyableCodeSnippet from "../components/CopyableCodeSnippet/CopyableCodeS
 
 import styles from "./blog-template.module.scss"
 import FeaturedBlogTitle from "../components/FeaturedBlogTitle/FeaturedBlogTitle"
+import { Helmet } from "react-helmet"
 
 export const query = graphql`
   query($slug: String!) {
