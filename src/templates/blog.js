@@ -112,6 +112,12 @@ const Blog = props => {
     <Layout>
       <div className={styles.container}>
         <div className={styles.blogTemplate}>
+          <Helmet>
+            <meta
+              property="og:image"
+              content={data.contentfulBlogPost.socialMediaImg.file.url}
+            />
+          </Helmet>
           <FeaturedBlogTitle
             postTitle={data.contentfulBlogPost.title}
             isFeatured={false}
