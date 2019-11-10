@@ -8,7 +8,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <Helmet>
-        <meta property="og:image" content={} />
+        <meta property="og:image" content={Logo} />
       </Helmet>
       <Hero />
     </Layout>
