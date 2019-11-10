@@ -1,6 +1,5 @@
 import React from "react"
 import heroStyles from "./Hero.module.scss"
-import Img from "../../images/coding.png"
 import { useStaticQuery, graphql } from "gatsby"
 import BlogPreview from "../BlogPreview/BlogPreview"
 import FeaturedBlogTitle from "../FeaturedBlogTitle/FeaturedBlogTitle"
