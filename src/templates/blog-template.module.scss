@@ -42,7 +42,7 @@
 }
 
 .social-media-icons {
-  height: 90px;
+  height: 150px;
   justify-content: space-between;
   align-items: flex-start;
   display: flex;
@@ -57,17 +57,16 @@
     width: 100%;
     display: flex;
     height: unset;
-    // position: fixed;
-    // bottom: 0px;
-    // display: none;
   }
 }
 
 .social-media-icon {
   display: inline-block;
-  img {
-    width: 32px;
-    display: inline-block;
-    margin: 0;
+  svg {
+    transition: 0.4s all ease;
+    color: #c7c7c7;
+    &:hover {
+      color: #36c7bb;
+    }
   }
 }
