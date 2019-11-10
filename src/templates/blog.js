@@ -123,10 +123,6 @@ const Blog = props => {
           />
           <div className={styles.blogWrappper}>
             <div className={styles.socialMediaIcons}>
-              <meta
-                property="og:image"
-                content={data.contentfulBlogPost.socialMediaImg.file.url}
-              />
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}`}
                 target="_blank"
