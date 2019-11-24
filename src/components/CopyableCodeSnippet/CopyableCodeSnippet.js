@@ -7,7 +7,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard"
 import "prismjs/components/prism-jsx.min"
 
 const CopyableCodeSnippet = props => {
-  const { codeValue, codeLanguage, codeStyle } = props
+  const { codeValue, codeLanguage, codeStyle, codeTitleVisibile = true } = props
   const [isShown, setIsShown] = useState(false)
   const showSuccessToolTip = () => {
     setIsShown(true)
@@ -18,10 +18,13 @@ const CopyableCodeSnippet = props => {
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0)
-  }, [])
+  }, [codeLanguage])
 
   return (
     <div className="copyable-code-snippet ">
+      {codeTitleVisibile && (
+        <div className="copyable-code-snippet__code-type">{codeLanguage}</div>
+      )}
       <div className="copyable-code-snippet-container">
         <div
           className="copyable-code-snippet__success-tooltip"
@@ -35,11 +38,13 @@ const CopyableCodeSnippet = props => {
             showSuccessToolTip()
           }}
         >
-          <Button>Copy</Button>
+          <Button>Copy </Button>
         </CopyToClipboard>
       </div>
       <pre style={codeStyle}>
-        <code className={`language-${codeLanguage}`}>{codeValue.trim()}</code>
+        <code className={`language-${codeLanguage.trim()}`}>
+          {codeValue.trim()}
+        </code>
       </pre>
     </div>
   )

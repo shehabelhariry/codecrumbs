@@ -16,6 +16,7 @@
 .copyable-code-snippet {
   position: relative;
   button {
+    display: none;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -26,4 +27,18 @@
       opacity: 1;
     }
   }
+}
+.copyable-code-snippet__code-type {
+  background-color: #949494;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
+  position: absolute;
+  right: 0;
+  color: white;
+  min-width: 50px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: right;
 }

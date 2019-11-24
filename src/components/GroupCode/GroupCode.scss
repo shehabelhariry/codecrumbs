@@ -1,0 +1,26 @@
+.group-code__nav ul {
+  display: flex;
+  margin: 0;
+}
+
+.group-code__nav__item {
+  background: #bdbdbd;
+  padding: 0.5rem 2rem;
+  list-style: none;
+  color: white;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.group-code__nav__item.active {
+  background: #36c7bb;
+}
+
+.group-code__panel {
+  display: none;
+}
+.group-code__panel.active {
+  display: block;
+}

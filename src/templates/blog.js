@@ -15,6 +15,7 @@ import CopyableCodeSnippet from "../components/CopyableCodeSnippet/CopyableCodeS
 import styles from "./blog-template.module.scss"
 import FeaturedBlogTitle from "../components/FeaturedBlogTitle/FeaturedBlogTitle"
 import { Helmet } from "react-helmet"
+import GroupCode from "../components/GroupCode/GroupCode"
 
 export const query = graphql`
   query($slug: String!) {
@@ -32,13 +33,13 @@ export const query = graphql`
           url
         }
       }
-      date(formatString: "DD MMMM YYYY")
-      slug
       socialMediaImg {
         file {
           url
         }
       }
+      date(formatString: "DD MMMM YYYY")
+      slug
       body {
         json
       }
@@ -49,13 +50,16 @@ export const query = graphql`
 const customRenderOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: node => {
-      if (node.data.target.file) {
+      console.log(node)
+      if (node.data.target.fields) {
         return (
-          <img
-            class="img-fluid"
-            src={`${node.data.target.fields.file["en-US"].url}`}
-            alt="attached"
-          />
+          <div className={styles.imgContainer}>
+            <img
+              class="img-fluid"
+              src={`${node.data.target.fields.file["en-US"].url}`}
+              alt="attached"
+            />
+          </div>
         )
       }
     },
@@ -67,8 +71,29 @@ const customRenderOptions = {
         node.content[0].marks[0] &&
         node.content[0].marks[0].type === "code"
       ) {
+        if (!node.content[0].value.trim()) return " "
+        const isGroupCode = node.content[0].value.startsWith("group<<")
+        if (isGroupCode) {
+          let groupCodeTypes = node.content[0].value
+            .match(/group<<<(.*?)>>>/)[1]
+            .split(",")
+
+          let codeSnippets = groupCodeTypes.map(type => {
+            let regex = new RegExp(
+              `(?<=${type.trim()}::\\s+).*?(?=\\s+---)`,
+              "gs"
+            )
+            return node.content[0].value.match(regex)[0]
+          })
+
+          return (
+            <GroupCode types={groupCodeTypes} codeSnippets={codeSnippets} />
+          )
+        }
+
         const codeType = node.content[0].value.split("::")[0]
         const codeValue = node.content[0].value.split("::")[1].trim()
+
         return (
           <CopyableCodeSnippet
             codeValue={codeValue}
@@ -97,7 +122,16 @@ const customRenderOptions = {
         return <p>{container}</p>
       }
 
-      return <p>{node.content[0].value}</p>
+      return (
+        <p
+          dangerouslySetInnerHTML={{
+            __html: node.content[0].value.replace(
+              /`(.*?)`/g,
+              `<span class="word-highlighted">$1</span>`
+            ),
+          }}
+        />
+      )
     },
   },
 }

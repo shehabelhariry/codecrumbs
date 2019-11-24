@@ -27,22 +27,24 @@ const Hero = () => {
     }
   `)
 
+  const lastIndex = blogPosts.allContentfulBlogPost.nodes.length - 1
   return (
     <React.Fragment>
       <FeaturedBlogTitle
         heroStyles={heroStyles}
-        postTitle={blogPosts.allContentfulBlogPost.nodes[0].title}
-        postSlug={blogPosts.allContentfulBlogPost.nodes[0].slug}
-        postImg={blogPosts.allContentfulBlogPost.nodes[0].previewImage.file.url}
-        postTag={blogPosts.allContentfulBlogPost.nodes[0].tag}
-        postColor={blogPosts.allContentfulBlogPost.nodes[0].color}
+        postTitle={blogPosts.allContentfulBlogPost.nodes[lastIndex].title}
+        postSlug={blogPosts.allContentfulBlogPost.nodes[lastIndex].slug}
+        postImg={
+          blogPosts.allContentfulBlogPost.nodes[lastIndex].previewImage.file.url
+        }
+        postTag={blogPosts.allContentfulBlogPost.nodes[lastIndex].tag}
+        postColor={blogPosts.allContentfulBlogPost.nodes[lastIndex].color}
       />
       <div className={heroStyles.blogPostsContainer}>
-        {blogPosts.allContentfulBlogPost.nodes.slice(1).map(post => {
+        {blogPosts.allContentfulBlogPost.nodes.slice(0, -1).map(post => {
           return <BlogPreview post={post} key={post.slug} />
         })}
       </div>
-      }
     </React.Fragment>
   )
 }

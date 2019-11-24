@@ -792,3 +792,14 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+
+.word-highlighted {
+  background: #f0f0f0;
+  color: #c73686;
+  border: 1px solid #c4c3c3;
+  padding: 0px 4px;
+  border-radius: 4px;
+  display: inline-block;
+  line-height: 18px;
+  padding-bottom: 9px;
+}
