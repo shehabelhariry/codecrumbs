@@ -114,7 +114,11 @@ const customRenderOptions = {
         const container = []
         node.content.forEach((item, index) => {
           if (item.nodeType === "hyperlink") {
-            container.push(<a href={item.data.uri}>{item.data.uri}</a>)
+            container.push(
+              <a href={item.data.uri} target="_blank" rel="noopener noreferrer">
+                {item.data.uri}
+              </a>
+            )
           } else {
             container.push(<p>{item.value}</p>)
           }
@@ -177,12 +181,14 @@ const Blog = props => {
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}`}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={styles.socialMediaIcon}
               >
                 <FontAwesomeIcon size="2x" icon={faFacebookSquare} />
               </a>
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href={`https://twitter.com/intent/tweet/?text=${data.contentfulBlogPost.title}&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&via=cheha6`}
                 className={styles.socialMediaIcon}
               >
@@ -191,6 +197,7 @@ const Blog = props => {
               <a
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&title=${data.contentfulBlogPost.title}&source=https://codecrumbs.netlify.com/`}
                 target="_blank"
+                rel="noopener noreferrer"
                 className={styles.socialMediaIcon}
               >
                 <FontAwesomeIcon size="2x" icon={faLinkedin} />
