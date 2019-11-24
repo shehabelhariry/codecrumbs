@@ -1,4 +1,5 @@
 .container {
+  background: var(--bg-color);
   @media all and (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -27,16 +28,17 @@
 .blog {
   p {
     font-size: 1.4rem;
-    color: #111;
+    color: var(--font-color);
     line-height: 1.8rem;
   }
   h2,
   h3,
   h4 {
     margin-top: 3rem;
+    color: var(--font-color);
     &:before {
       content: "[-] ";
-      color: #36c7bb;
+      color: var(--primary-color);
     }
   }
 }
@@ -66,7 +68,7 @@
     transition: 0.4s all ease;
     color: #c7c7c7;
     &:hover {
-      color: #36c7bb;
+      color: var(--primary-color);
     }
   }
 }
@@ -75,5 +77,15 @@
   text-align: center;
   img {
     display: inline-block;
+  }
+}
+
+.theme-icon {
+  position: fixed;
+  bottom: 20px !important;
+  z-index: 100;
+  right: 30px;
+  svg {
+    color: var(--dark-theme-trigger-color);
   }
 }

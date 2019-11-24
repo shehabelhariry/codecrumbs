@@ -1,8 +1,27 @@
+:root {
+  --primary-color: #36c7bb;
+  --font-color: #111;
+  --bg-color: white;
+  --highlight-font-color: #c73686;
+  --highlight-background-color: #f0f0f0;
+  --dark-theme-trigger-color: #eaeaea;
+}
+
+[data-theme="dark"] {
+  --primary-color: #7b9d9b;
+  --font-color: #e1e1ff;
+  --bg-color: #1d1c1c;
+  --highlight-font-color: rgb(230, 219, 116);
+  --highlight-background-color: #272822;
+  --dark-theme-trigger-color: rgb(230, 219, 116);
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -660,10 +679,10 @@ body {
 }
 
 .hamburger-inner {
-  background-color: #36c7bb !important;
+  background-color: var(--primary-color) !important;
   &::after,
   &::before {
-    background-color: #36c7bb !important;
+    background-color: var(--primary-color) !important;
   }
   .is-active & {
     background-color: white !important;
@@ -794,9 +813,8 @@ pre[class*="language-"] {
 }
 
 .word-highlighted {
-  background: #f0f0f0;
-  color: #c73686;
-  border: 1px solid #c4c3c3;
+  background: var(--highlight-background-color);
+  color: var(--highlight-font-color);
   padding: 0px 4px;
   border-radius: 4px;
   display: inline-block;

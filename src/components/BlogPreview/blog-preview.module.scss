@@ -16,7 +16,7 @@
 }
 
 .info-circle {
-  background: #36c7bb;
+  background: var(--primary-color);
   position: absolute;
   height: 60px;
   width: 60px;
@@ -67,7 +67,7 @@
 .tag {
   width: 100%;
   padding-bottom: 0.6rem;
-  color: #36c7bb;
+  color: var(--primary-color);
   display: inline-block;
   text-align: center;
   font-weight: 800;

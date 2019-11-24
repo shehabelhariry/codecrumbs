@@ -5,7 +5,7 @@ import headerStyles from "./Header.module.scss"
 import Link from "gatsby-plugin-transition-link/AniLink"
 import "hamburgers/dist/hamburgers.css"
 
-const Header = () => {
+const Header = ({ toggleTheme }) => {
   const [menuIsOpen, setMenuOpen] = useState(false)
   const siteInfo = useStaticQuery(graphql`
     query {

@@ -15,7 +15,7 @@
     border: 0;
     border: 1px solid #c1c7c7;
     &:focus {
-      border: 1px solid #36c7bb;
+      border: 1px solid var(--primary-color);
     }
   }
 }

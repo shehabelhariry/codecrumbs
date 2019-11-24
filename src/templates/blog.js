@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 import {
   faFacebookSquare,
   faTwitterSquare,
@@ -147,9 +148,14 @@ const Blog = props => {
     customRenderOptions
   )
 
+  const [isDark, setIsDark] = useState(false)
+  const toggleTheme = () => {
+    setIsDark(!isDark)
+  }
+
   return (
     <Layout>
-      <div className={styles.container}>
+      <div className={styles.container} data-theme={isDark ? "dark" : ""}>
         <div className={styles.blogTemplate}>
           <Helmet>
             <meta
@@ -204,6 +210,9 @@ const Blog = props => {
               </a>
             </div>
             <div className={styles.blog}>{renderedReactComponents}</div>
+            <a onClick={toggleTheme} className={styles.themeIcon}>
+              <FontAwesomeIcon size="2x" icon={isDark ? faLightbulb : faMoon} />
+            </a>
           </div>
         </div>
       </div>

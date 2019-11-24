@@ -2,9 +2,13 @@ import React, { useState } from "react"
 import Avatar from "avataaars"
 import "./team-member.scss"
 
-import LinkedInImage from "../../images/social-linkedin-circular-button.svg"
-import GithubImage from "../../images/github.svg"
-import twitterImg from "../../images/twitter.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faFacebookSquare,
+  faTwitterSquare,
+  faLinkedin,
+  faGithubSquare,
+} from "@fortawesome/free-brands-svg-icons"
 
 const TeamMember = ({
   name,
@@ -35,14 +39,14 @@ const TeamMember = ({
         onMouseEnter={changeExpression}
         onMouseLeave={changeExpression}
       >
-        <a href={linkedIn}>
-          <img src={LinkedInImage} alt="social media" />
+        <a href={linkedIn} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon size="2x" icon={faLinkedin} />
         </a>
-        <a href={github}>
-          <img src={GithubImage} alt="social media" />
+        <a target="_blank" rel="noopener noreferrer" href={github}>
+          <FontAwesomeIcon size="2x" icon={faGithubSquare} />
         </a>
-        <a href={twitter}>
-          <img src={twitterImg} alt="social media" />
+        <a href={twitter} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon size="2x" icon={faTwitterSquare} />
         </a>
       </div>
     </div>

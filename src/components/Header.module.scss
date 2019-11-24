@@ -9,12 +9,12 @@
 .link {
   color: #343434;
   &:hover {
-    color: #36c7bb;
+    color: var(--primary-color);
   }
 }
 
 .active-link {
-  color: #36c7bb;
+  color: var(--primary-color);
   @media all and (max-width: 768px) {
     color: white;
     &::before {
@@ -45,7 +45,7 @@
     align-items: center;
     .title {
       font-size: 1.5rem;
-      color: #36c7bb;
+      color: var(--primary-color);
       font-family: "Fredoka One", cursive;
       font-weight: 300;
     }
@@ -99,7 +99,7 @@
     }
     .full-screen {
       display: block;
-      background-color: #36c7bb;
+      background-color: var(--primary-color);
       position: fixed;
       top: 0;
       left: 0;
