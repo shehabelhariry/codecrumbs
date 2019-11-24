@@ -25,9 +25,13 @@ const FeaturedBlogTitle = ({
             ""
           )}
           <h3>
-            <Link to={`/blog/${postSlug}`} fade>
-              {postTitle}
-            </Link>
+            {isFeatured ? (
+              <Link to={`/blog/${postSlug}`} fade>
+                {postTitle}
+              </Link>
+            ) : (
+              <span> {postTitle}</span>
+            )}
           </h3>
           {!isFeatured ? (
             <div className={styles.authorInfo}>

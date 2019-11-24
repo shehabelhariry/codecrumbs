@@ -16,20 +16,23 @@
   }
   h3 {
     width: 80%;
-    a {
+    a,
+    span {
       color: white;
       line-height: 50px;
       font-size: 60px;
       text-decoration: none;
       font-family: "Darker Grotesque", sans-serif;
       text-transform: capitalize;
-      &:hover {
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.4);
-      }
       @media all and (max-width: 768px) {
         font-size: 40px;
         line-height: 44px;
+      }
+    }
+    a {
+      &:hover {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.4);
       }
     }
     @media all and (max-width: 768px) {
