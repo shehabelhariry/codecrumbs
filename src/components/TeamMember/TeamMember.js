@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import Avatar from "avataaars"
+import React from "react"
 import "./team-member.scss"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
