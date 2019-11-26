@@ -7,13 +7,8 @@ import CustomInput from "../components/CustomInput/CustomInput"
 import TeamMember from "../components/TeamMember/TeamMember"
 
 const ContactPage = () => {
-  const hitLambda = () => {
-    axios.post("http://localhost.com:9000/getUsers").then(resp => {
-      console.log(resp)
-    })
-  }
   return (
-    <Layout>
+    <Layout noContactButton={true}>
       <div className="width-container">
         <div className={styles.container}>
           <TeamMember

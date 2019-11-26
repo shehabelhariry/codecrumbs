@@ -5,7 +5,7 @@ import headerStyles from "./Header.module.scss"
 import Link from "gatsby-plugin-transition-link/AniLink"
 import "hamburgers/dist/hamburgers.css"
 
-const Header = ({ toggleTheme }) => {
+const Header = ({ toggleTheme, noContactButton }) => {
   const [menuIsOpen, setMenuOpen] = useState(false)
   const siteInfo = useStaticQuery(graphql`
     query {
@@ -78,7 +78,7 @@ const Header = ({ toggleTheme }) => {
             </Link>
           </li> */}
           <li>
-            {window.location.pathname !== "/contact" ? (
+            {!noContactButton ? (
               <Button href="/contact" as="link">
                 Say Hi
               </Button>

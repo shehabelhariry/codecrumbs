@@ -9,7 +9,7 @@ const Layout = props => {
   return (
     <div className={LayoutStyles.container}>
       <div className={LayoutStyles.contentContainer}>
-        <Header />
+        <Header noContactButton={props.noContactButton} />
         {props.children}
       </div>
       <Footer />
