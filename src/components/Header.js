@@ -18,7 +18,6 @@ const Header = ({ toggleTheme }) => {
   `)
 
   const toggleNavigation = () => {
-    console.log(menuIsOpen)
     setMenuOpen(!menuIsOpen)
   }
 
@@ -79,9 +78,11 @@ const Header = ({ toggleTheme }) => {
             </Link>
           </li> */}
           <li>
-            <Button href="/contact" as="link">
-              Say Hi
-            </Button>
+            {window.location.pathname !== "/contact" ? (
+              <Button href="/contact" as="link">
+                Say Hi
+              </Button>
+            ) : null}
           </li>
         </ul>
       </nav>

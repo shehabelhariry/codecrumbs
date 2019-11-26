@@ -17,19 +17,6 @@ const ContactPage = () => {
       <div className="width-container">
         <div className={styles.container}>
           <TeamMember
-            avatarProps={{
-              avatarStyle: "Circle",
-              topType: "ShortHairShortFlat",
-              accessoriesType: "Prescription02",
-              hairColor: "BrownDark",
-              facialHairType: "Blank",
-              clotheType: "CollarSweater",
-              clotheColor: "Blue03",
-              eyeType: "Default",
-              eyebrowType: "Default",
-              mouthType: "Default",
-              skinColor: "Light",
-            }}
             name="Shehab Elhariry"
             about="Front-end Developer - (1/8) Piano Player - Comet"
             linkedIn="https://www.linkedin.com/in/shehabelhariry/"
@@ -48,9 +35,14 @@ const ContactPage = () => {
               action="thank-you"
             >
               <input type="hidden" name="form-name" value="Contact Form" />
-              <CustomInput name="subject" label="Subject" />
-              <CustomInput name="email" label="Email" type="email" />
-              <CustomInput name="message" type="textarea" label="Message" />
+              <CustomInput required name="subject" label="Subject" />
+              <CustomInput required name="email" label="Email" type="email" />
+              <CustomInput
+                required
+                name="message"
+                type="textarea"
+                label="Message"
+              />
               <Button appearance="primary">Submit</Button>
             </form>
           </div>
