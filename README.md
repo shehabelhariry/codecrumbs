@@ -1,5 +1,4 @@
-Codecrumbs
-==========
+![LOGO](logo.png)
 
 It's longer than a tweet but shorter than your average blog post
 
