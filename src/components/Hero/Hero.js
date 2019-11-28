@@ -17,6 +17,12 @@ const Hero = () => {
               url
             }
           }
+          author
+          authorImg {
+            file {
+              url
+            }
+          }
           color
           tag
           body {
@@ -38,6 +44,11 @@ const Hero = () => {
         postImg={blogPosts.allContentfulBlogPost.nodes[0].previewImage.file.url}
         postTag={blogPosts.allContentfulBlogPost.nodes[0].tag}
         postColor={blogPosts.allContentfulBlogPost.nodes[0].color}
+        postAuthor={blogPosts.allContentfulBlogPost.nodes[0].author}
+        postAuthorImg={
+          blogPosts.allContentfulBlogPost.nodes[0].authorImg.file.url
+        }
+        date={blogPosts.allContentfulBlogPost.nodes[0].date}
       />
       <div className={heroStyles.blogPostsContainer}>
         {blogPosts.allContentfulBlogPost.nodes.slice(1).map(post => {

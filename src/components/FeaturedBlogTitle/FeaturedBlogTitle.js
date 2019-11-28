@@ -33,19 +33,17 @@ const FeaturedBlogTitle = ({
               <span> {postTitle}</span>
             )}
           </h3>
-          {!isFeatured ? (
-            <div className={styles.authorInfo}>
-              <div
-                style={{ backgroundImage: `url(${postAuthorImg})` }}
-                alt="author"
-                className={styles.authorImg}
-              />
-              <div className={styles.postDetailsContainer}>
-                <span className={styles.authorName}>{postAuthor}</span>
-                <span className={styles.postDate}>{date}</span>
-              </div>
+          <div className={styles.authorInfo}>
+            <div
+              style={{ backgroundImage: `url(${postAuthorImg})` }}
+              alt="author"
+              className={styles.authorImg}
+            />
+            <div className={styles.postDetailsContainer}>
+              <span className={styles.authorName}>{postAuthor}</span>
+              <span className={styles.postDate}>{date}</span>
             </div>
-          ) : null}
+          </div>
         </div>
         <img src={postImg} alt="featured" />
       </div>
