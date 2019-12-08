@@ -6,6 +6,7 @@ import Logo from "../images/logo.png"
 
 const IndexPage = () => {
   return (
+    // <div>s</div>
     <Layout>
       <Helmet>
         <meta

@@ -41,6 +41,19 @@
       color: var(--primary-color);
     }
   }
+  blockquote {
+    border-left: 15px solid #eaeaea;
+    margin: 3rem 1.45rem;
+    padding: 0 1rem;
+    p {
+      font-size: 1.8rem;
+      line-height: 2.2rem;
+      font-style: italic;
+    }
+  }
+  a {
+    color: var(--primary-color);
+  }
 }
 
 .social-media-icons {
@@ -77,6 +90,7 @@
   text-align: center;
   img {
     display: inline-block;
+    width: 80%;
   }
 }
 

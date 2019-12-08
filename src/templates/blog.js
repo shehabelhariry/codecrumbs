@@ -117,11 +117,13 @@ const customRenderOptions = {
           if (item.nodeType === "hyperlink") {
             container.push(
               <a href={item.data.uri} target="_blank" rel="noopener noreferrer">
-                {item.data.uri}
+                {item.content && item.content[0]
+                  ? item.content[0].value
+                  : item.data.uri}
               </a>
             )
           } else {
-            container.push(<p>{item.value}</p>)
+            container.push(item.value)
           }
         })
         return <p>{container}</p>
