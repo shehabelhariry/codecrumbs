@@ -11,7 +11,7 @@ const SubscribeButton = () => {
         name="EMAIL"
         id="mce-EMAIL"
         placeholder="Type Your Email adress"
-        required
+        required={true}
       />
       <Button
         type="submit"
