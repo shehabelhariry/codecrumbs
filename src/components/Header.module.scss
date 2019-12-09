@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  background-color: var(--bg-color);
 }
 
 .link {
@@ -108,5 +109,11 @@
       z-index: 2;
       display: flex;
     }
+  }
+}
+.theme-icon {
+  padding-left: 1rem;
+  svg {
+    color: var(--dark-theme-trigger-color);
   }
 }

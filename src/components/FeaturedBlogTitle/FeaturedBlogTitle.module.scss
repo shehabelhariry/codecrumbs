@@ -66,7 +66,7 @@
 
 .author-info {
   display: flex;
-  color: #36c7bb;
+  color: var(--primary-color);
   font-size: 3.7rem;
   &:after {
     content: "]";

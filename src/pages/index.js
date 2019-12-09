@@ -7,14 +7,20 @@ import Logo from "../images/logo.png"
 const IndexPage = () => {
   return (
     <Layout>
-      <Helmet>
-        <meta
-          property="og:image"
-          content={`https://codecrumbs.netlify.com${Logo}`}
-        />
-        <title>Codecrumbs</title>
-      </Helmet>
-      <Hero />
+      {isDark => {
+        return (
+          <React.Fragment>
+            <Helmet>
+              <meta
+                property="og:image"
+                content={`https://codecrumbs.netlify.com${Logo}`}
+              />
+              <title>Codecrumbs</title>
+            </Helmet>
+            <Hero isDark={isDark} />
+          </React.Fragment>
+        )
+      }}
     </Layout>
   )
 }

@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 import {
   faFacebookSquare,
   faTwitterSquare,
@@ -155,75 +154,74 @@ const Blog = props => {
     customRenderOptions
   )
 
-  const [isDark, setIsDark] = useState(false)
-  const toggleTheme = () => {
-    setIsDark(!isDark)
-  }
-
   return (
     <Layout>
-      <div className={styles.container} data-theme={isDark ? "dark" : ""}>
-        <div className={styles.blogTemplate}>
-          <Helmet>
-            <meta
-              property="og:image"
-              content={data.contentfulBlogPost.socialMediaImg.file.url}
-            />
-            <meta property="og:title" content={data.contentfulBlogPost.title} />
-            <meta
-              name="twitter:image"
-              content={data.contentfulBlogPost.socialMediaImg.file.url}
-            />
-            <meta
-              name="twitter:title"
-              content={data.contentfulBlogPost.title}
-            />
-            <meta property="og:site_name" content="codecrumbs"></meta>
-            <title>Codecrumbs: {data.contentfulBlogPost.title}</title>
-          </Helmet>
-          <FeaturedBlogTitle
-            postTitle={data.contentfulBlogPost.title}
-            isFeatured={false}
-            postImg={data.contentfulBlogPost.previewImage.file.url}
-            postColor={data.contentfulBlogPost.color}
-            postAuthor={data.contentfulBlogPost.author}
-            postAuthorImg={data.contentfulBlogPost.authorImg.file.url}
-            date={data.contentfulBlogPost.date}
-          />
-          <div className={styles.blogWrappper}>
-            <div className={styles.socialMediaIcons}>
-              <a
-                href={`https://www.facebook.com/sharer/sharer.php?u=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialMediaIcon}
-              >
-                <FontAwesomeIcon size="2x" icon={faFacebookSquare} />
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://twitter.com/intent/tweet/?text=${data.contentfulBlogPost.title}&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&via=cheha6`}
-                className={styles.socialMediaIcon}
-              >
-                <FontAwesomeIcon size="2x" icon={faTwitterSquare} />
-              </a>
-              <a
-                href={`https://www.linkedin.com/shareArticle?mini=true&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&title=${data.contentfulBlogPost.title}&source=https://codecrumbs.netlify.com/`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.socialMediaIcon}
-              >
-                <FontAwesomeIcon size="2x" icon={faLinkedin} />
-              </a>
+      {isDark => {
+        return (
+          <div className={styles.container}>
+            <div className={styles.blogTemplate}>
+              <Helmet>
+                <meta
+                  property="og:image"
+                  content={data.contentfulBlogPost.socialMediaImg.file.url}
+                />
+                <meta
+                  property="og:title"
+                  content={data.contentfulBlogPost.title}
+                />
+                <meta
+                  name="twitter:image"
+                  content={data.contentfulBlogPost.socialMediaImg.file.url}
+                />
+                <meta
+                  name="twitter:title"
+                  content={data.contentfulBlogPost.title}
+                />
+                <meta property="og:site_name" content="codecrumbs"></meta>
+                <title>Codecrumbs: {data.contentfulBlogPost.title}</title>
+              </Helmet>
+              <FeaturedBlogTitle
+                postTitle={data.contentfulBlogPost.title}
+                isFeatured={false}
+                postImg={data.contentfulBlogPost.previewImage.file.url}
+                postColor={!isDark ? data.contentfulBlogPost.color : "#2d2d2d"}
+                postAuthor={data.contentfulBlogPost.author}
+                postAuthorImg={data.contentfulBlogPost.authorImg.file.url}
+                date={data.contentfulBlogPost.date}
+              />
+              <div className={styles.blogWrappper}>
+                <div className={styles.socialMediaIcons}>
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialMediaIcon}
+                  >
+                    <FontAwesomeIcon size="2x" icon={faFacebookSquare} />
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={`https://twitter.com/intent/tweet/?text=${data.contentfulBlogPost.title}&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&via=cheha6`}
+                    className={styles.socialMediaIcon}
+                  >
+                    <FontAwesomeIcon size="2x" icon={faTwitterSquare} />
+                  </a>
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=https://codecrumbs.netlify.com/blog/${data.contentfulBlogPost.slug}&title=${data.contentfulBlogPost.title}&source=https://codecrumbs.netlify.com/`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialMediaIcon}
+                  >
+                    <FontAwesomeIcon size="2x" icon={faLinkedin} />
+                  </a>
+                </div>
+                <div className={styles.blog}>{renderedReactComponents}</div>
+              </div>
             </div>
-            <div className={styles.blog}>{renderedReactComponents}</div>
-            <a onClick={toggleTheme} className={styles.themeIcon}>
-              <FontAwesomeIcon size="2x" icon={isDark ? faLightbulb : faMoon} />
-            </a>
           </div>
-        </div>
-      </div>
+        )
+      }}
     </Layout>
   )
 }

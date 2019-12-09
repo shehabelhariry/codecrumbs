@@ -2,7 +2,7 @@ import React from "react"
 import Link from "gatsby-plugin-transition-link/AniLink"
 import styles from "./blog-preview.module.scss"
 
-const BlogPreview = ({ post }) => {
+const BlogPreview = ({ post, isDark }) => {
   console.log(post)
   return (
     <Link className={styles.blogContainer} to={`/blog/${post.slug}`} fade>
@@ -16,7 +16,7 @@ const BlogPreview = ({ post }) => {
                 height: "240px",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
-                backgroundColor: post.color,
+                backgroundColor: !isDark ? post.color : "#2d2d2d",
                 borderTopLeftRadius: "4px",
                 borderTopRightRadius: "4px",
               }}

@@ -3,9 +3,11 @@ import { graphql, useStaticQuery } from "gatsby"
 import Button from "./Button/Button"
 import headerStyles from "./Header.module.scss"
 import Link from "gatsby-plugin-transition-link/AniLink"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons"
 import "hamburgers/dist/hamburgers.css"
 
-const Header = ({ toggleTheme, noContactButton }) => {
+const Header = ({ toggleTheme, noContactButton, isDark }) => {
   const [menuIsOpen, setMenuOpen] = useState(false)
   const siteInfo = useStaticQuery(graphql`
     query {
@@ -84,6 +86,9 @@ const Header = ({ toggleTheme, noContactButton }) => {
               </Button>
             ) : null}
           </li>
+          <a onClick={toggleTheme} className={headerStyles.themeIcon}>
+            <FontAwesomeIcon size="2x" icon={isDark ? faLightbulb : faMoon} />
+          </a>
         </ul>
       </nav>
     </header>

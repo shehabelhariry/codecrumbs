@@ -9,40 +9,49 @@ import TeamMember from "../components/TeamMember/TeamMember"
 const ContactPage = () => {
   return (
     <Layout noContactButton={true}>
-      <div className="width-container">
-        <div className={styles.container}>
-          <TeamMember
-            name="Shehab Elhariry"
-            about="Front-end Developer - (1/8) Piano Player - Comet"
-            linkedIn="https://www.linkedin.com/in/shehabelhariry/"
-            twitter="https://twitter.com/cheha6"
-            github="https://github.com/shehabelhariry"
-          />
-          <div className={styles.contactFormContainer}>
-            <p style={{ fontSize: "1.5rem", paddingBottom: "20px" }}>
-              Drop me a word
-            </p>
-            <form
-              className={styles.contactForm}
-              data-netlify="true"
-              name="Contact Form"
-              method="post"
-              action="thank-you"
-            >
-              <input type="hidden" name="form-name" value="Contact Form" />
-              <CustomInput required name="subject" label="Subject" />
-              <CustomInput required name="email" label="Email" type="email" />
-              <CustomInput
-                required
-                name="message"
-                type="textarea"
-                label="Message"
+      {() => {
+        return (
+          <div className="width-container">
+            <div className={styles.container}>
+              <TeamMember
+                name="Shehab Elhariry"
+                about="Front-end Developer - (1/8) Piano Player - Comet"
+                linkedIn="https://www.linkedin.com/in/shehabelhariry/"
+                twitter="https://twitter.com/cheha6"
+                github="https://github.com/shehabelhariry"
               />
-              <Button appearance="primary">Submit</Button>
-            </form>
+              <div className={styles.contactFormContainer}>
+                <p style={{ fontSize: "1.5rem", paddingBottom: "20px" }}>
+                  Drop me a word
+                </p>
+                <form
+                  className={styles.contactForm}
+                  data-netlify="true"
+                  name="Contact Form"
+                  method="post"
+                  action="thank-you"
+                >
+                  <input type="hidden" name="form-name" value="Contact Form" />
+                  <CustomInput required name="subject" label="Subject" />
+                  <CustomInput
+                    required
+                    name="email"
+                    label="Email"
+                    type="email"
+                  />
+                  <CustomInput
+                    required
+                    name="message"
+                    type="textarea"
+                    label="Message"
+                  />
+                  <Button appearance="primary">Submit</Button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        )
+      }}
     </Layout>
   )
 }

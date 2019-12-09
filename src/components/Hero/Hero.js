@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import BlogPreview from "../BlogPreview/BlogPreview"
 import FeaturedBlogTitle from "../FeaturedBlogTitle/FeaturedBlogTitle"
 
-const Hero = () => {
+const Hero = ({ isDark }) => {
   const blogPosts = useStaticQuery(graphql`
     {
       allContentfulBlogPost(sort: { fields: date, order: DESC }) {
@@ -34,7 +34,6 @@ const Hero = () => {
   `)
 
   const lastIndex = blogPosts.allContentfulBlogPost.nodes.length - 1
-  console.log(blogPosts.allContentfulBlogPost.nodes)
   return (
     <React.Fragment>
       <FeaturedBlogTitle
@@ -43,7 +42,9 @@ const Hero = () => {
         postSlug={blogPosts.allContentfulBlogPost.nodes[0].slug}
         postImg={blogPosts.allContentfulBlogPost.nodes[0].previewImage.file.url}
         postTag={blogPosts.allContentfulBlogPost.nodes[0].tag}
-        postColor={blogPosts.allContentfulBlogPost.nodes[0].color}
+        postColor={
+          !isDark ? blogPosts.allContentfulBlogPost.nodes[0].color : "#2d2d2d"
+        }
         postAuthor={blogPosts.allContentfulBlogPost.nodes[0].author}
         postAuthorImg={
           blogPosts.allContentfulBlogPost.nodes[0].authorImg.file.url
@@ -52,7 +53,7 @@ const Hero = () => {
       />
       <div className={heroStyles.blogPostsContainer}>
         {blogPosts.allContentfulBlogPost.nodes.slice(1).map(post => {
-          return <BlogPreview post={post} key={post.slug} />
+          return <BlogPreview post={post} key={post.slug} isDark={isDark} />
         })}
       </div>
     </React.Fragment>
