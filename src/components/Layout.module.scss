@@ -11,3 +11,17 @@
 .content-container {
   flex-grow: 1;
 }
+
+.a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // border: 1px solid #36c7bb;
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  @media all and (max-width: 768px) {
+    border: 0px;
+  }
+}

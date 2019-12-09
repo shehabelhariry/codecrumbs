@@ -5,8 +5,6 @@ import SubscribeButton from "../components/SubscribeButton/SubscribeButton"
 
 import "../styles/index.scss"
 import LayoutStyles from "./Layout.module.scss"
-import Button from "./Button/Button"
-import CustomInput from "./CustomInput/CustomInput"
 
 const MailChimp = (
   <div>
@@ -64,19 +62,7 @@ const Layout = props => {
         />
         {props.children(isDark)}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          border: "1px solid #36c7bb",
-          padding: "20px",
-          width: "50%",
-          margin: "0 auto",
-          // borderRadius: "600px",
-        }}
-      >
+      <div className={LayoutStyles.a}>
         <p>Never Miss a Codecrumb!</p>
         {MailChimp}
       </div>

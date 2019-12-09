@@ -16,4 +16,14 @@
     padding-left: 1rem;
     min-width: 300px;
   }
+  @media all and (max-width: 768px) {
+    flex-direction: column;
+    border: 0px;
+    input {
+      border: 1px solid #eaeaea;
+      border-radius: 600px;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+  }
 }
