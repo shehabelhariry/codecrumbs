@@ -116,7 +116,12 @@ const customRenderOptions = {
         node.content.forEach((item, index) => {
           if (item.nodeType === "hyperlink") {
             container.push(
-              <a href={item.data.uri} target="_blank" rel="noopener noreferrer">
+              <a
+                href={item.data.uri}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.externalLink}
+              >
                 {item.content && item.content[0]
                   ? item.content[0].value
                   : item.data.uri}
