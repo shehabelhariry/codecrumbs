@@ -1,0 +1,19 @@
+.subscribe-button {
+  display: flex;
+  position: relative;
+  border: 1px solid #eaeaea;
+  max-width: 600px;
+  justify-content: space-between;
+  border-radius: 600px;
+  border-radius: 600px;
+  padding: 2px;
+  input {
+    border: 0px;
+    flex: 1;
+    border-top-left-radius: 600px;
+    border-bottom-left-radius: 600px;
+    outline: none;
+    padding-left: 1rem;
+    min-width: 300px;
+  }
+}
