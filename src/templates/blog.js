@@ -179,6 +179,7 @@ const Blog = props => {
               content={data.contentfulBlogPost.title}
             />
             <meta property="og:site_name" content="codecrumbs"></meta>
+            <title>Codecrumbs: {data.contentfulBlogPost.title}</title>
           </Helmet>
           <FeaturedBlogTitle
             postTitle={data.contentfulBlogPost.title}
