@@ -33,7 +33,6 @@ const MailChimp = (
               type="text"
               name="b_00df214eb4af39941cd2da674_57e40dd829"
               tabIndex="-1"
-              value=""
             />
           </div>
         </div>

@@ -3,7 +3,7 @@ import Link from "gatsby-plugin-transition-link/AniLink"
 import styles from "./blog-preview.module.scss"
 
 const BlogPreview = ({ post, isDark }) => {
-  console.log(post)
+  // console.log(post)
   return (
     <Link className={styles.blogContainer} to={`/blog/${post.slug}`} fade>
       <div>

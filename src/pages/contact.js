@@ -32,18 +32,18 @@ const ContactPage = () => {
                   action="thank-you"
                 >
                   <input type="hidden" name="form-name" value="Contact Form" />
-                  <CustomInput required name="subject" label="Subject" />
+                  <CustomInput required name="subject" placeholder="Subject" />
                   <CustomInput
                     required
                     name="email"
-                    label="Email"
+                    placeholder="Email"
                     type="email"
                   />
                   <CustomInput
                     required
                     name="message"
                     type="textarea"
-                    label="Message"
+                    placeholder="Message"
                   />
                   <Button appearance="primary">Submit</Button>
                 </form>

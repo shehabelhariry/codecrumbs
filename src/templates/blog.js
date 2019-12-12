@@ -50,7 +50,6 @@ export const query = graphql`
 const customRenderOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: node => {
-      console.log(node)
       if (node.data.target.fields) {
         return (
           <div className={styles.imgContainer}>

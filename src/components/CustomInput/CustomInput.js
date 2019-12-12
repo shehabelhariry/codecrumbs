@@ -1,15 +1,43 @@
 import React from "react"
 import styles from "./CustomInput.module.scss"
 
-const CustomInput = ({ name, type, label, required = false }) => {
+const CustomInput = ({
+  name,
+  type,
+  placeholder,
+  defaultValue = "",
+  required = false,
+  onChange = () => {},
+  noMargin = false,
+}) => {
   const input =
     type === "textarea" ? (
-      <textarea name={name} placeholder={label} required></textarea>
+      <textarea
+        onChange={onChange}
+        name={name}
+        placeholder={placeholder}
+        required
+        defaultValue={defaultValue}
+      ></textarea>
     ) : (
-      <input name={name} type={type || "text"} placeholder={label} required />
+      <input
+        onChange={onChange}
+        name={name}
+        type={type || "text"}
+        placeholder={placeholder}
+        defaultValue={defaultValue}
+        required
+      />
     )
-  console.log(styles)
-  return <div className={styles.customInput}>{input}</div>
+
+  return (
+    <div
+      className={styles.customInput}
+      style={noMargin ? { marginBottom: 0 } : null}
+    >
+      {input}
+    </div>
+  )
 }
 
 export default CustomInput

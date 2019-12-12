@@ -1,0 +1,147 @@
+.customStyles {
+  &.h1 {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  &.h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+  }
+  &.h3 {
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+  &.h4 {
+    font-size: 1.4rem;
+    font-weight: 900;
+  }
+  &.h5 {
+    font-size: 1.2rem;
+    font-weight: 900;
+  }
+  &.h6 {
+    font-size: 1.1rem;
+    font-weight: 900;
+  }
+  &.p-italic {
+    font-style: italic;
+  }
+  &.p-bold {
+    font-weight: bold;
+  }
+  &.p-bold-italic {
+    font-style: italic;
+    font-weight: bold;
+  }
+  &.blockquote {
+    font-size: 2rem;
+    font-style: italic;
+    border-left: 10px solid #eaeaea;
+    padding-left: 20px;
+    line-height: 2.2rem;
+
+    margin-left: 10%;
+    // width: 90%;
+  }
+}
+
+.blog-creator {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  width: 1200px;
+  margin: 0 auto;
+  padding-left: 1rem;
+}
+
+.blog-creator__blocks__block {
+  border: 1px solid #eaeaea;
+  font-size: 1.8rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.blog-creator__blocks__block__options {
+  position: absolute;
+  font-size: 1rem;
+  top: 5px;
+  right: 5px;
+}
+
+.blog-creator__blocks__content {
+  border: 1px solid #eaeaea;
+  padding: 1.5rem;
+  border-radius: 8px;
+  > div {
+    min-height: 300px;
+  }
+}
+
+.blog-creator__blocks__editor-block {
+  position: relative;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  .edit-button {
+    cursor: pointer;
+    visibility: hidden;
+  }
+  &:hover {
+    border-color: #eaeaea;
+    .edit-button {
+      visibility: visible;
+    }
+  }
+  > div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    > div {
+      flex: 1;
+    }
+  }
+  &--header:not(.edit) {
+    .content {
+      &:before {
+        content: "[-] ";
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .content {
+    @extend .customStyles;
+  }
+
+  .blog-creator__blocks__editor-block__actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    a {
+      margin-left: 1rem;
+      span {
+        font-weight: 600;
+        padding-left: 0.25rem;
+      }
+    }
+  }
+  .edit {
+    .blog-creator__blocks__editor-block__actions {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      top: 0rem;
+      right: 0rem;
+    }
+  }
+}
+
+.blog-creator__tags {
+  > div {
+    padding-top: 0 !important;
+  }
+}
