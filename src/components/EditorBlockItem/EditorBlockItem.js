@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 import Editor from "./Editor"
 import "./EditorBlockItem.scss"
+import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
 
 const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
   const [isEdit, setIsEdit] = useState(false)
@@ -43,11 +44,31 @@ const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
               <FontAwesomeIcon size="1x" icon={faTrash} color="#36c7bb" />
             </a>
           </div>
-          <span
-            className={`content ${item.options.selectionTabs.current.value}`}
-          >
-            {item.content}
-          </span>
+          {item.type === "code" ? (
+            <span
+              className={`content ${item.options.selectionTabs.current.value}`}
+            >
+              <CopyableCodeSnippet
+                codeValue={item.content}
+                codeLanguage={item.options.selectionTabs.current.value}
+                codeTitleVisibile={false}
+                codeStyle={{
+                  backgroundColor: "#343434",
+                  color: "white",
+                  fontSize: "18px",
+                  maxWidth: "94vw",
+                  overflow: "auto",
+                  borderRadius: "8px",
+                }}
+              />
+            </span>
+          ) : (
+            <span
+              className={`content ${item.options.selectionTabs.current.value}`}
+            >
+              {item.content}
+            </span>
+          )}
         </div>
       )}
     </React.Fragment>

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import Layout from "../components/Layout"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import _ from "lodash"
@@ -73,23 +73,53 @@ const BlogCreator = () => {
         },
       },
     },
+    {
+      id: "3",
+      type: "code",
+      content: "</>",
+      options: {
+        selectionTabs: {
+          values: [
+            { label: "JS", value: "js" },
+            { label: "CSS", value: "css" },
+            { label: "HTML", value: "html" },
+          ],
+          current: { label: "HTML", value: "html" },
+        },
+      },
+    },
   ])
   const [selected, setSelected] = useState([])
 
   const formatAndCopyArticle = () => {
     const typesMapper = {
-      blockquote: props => {
-        console.log(props)
-        return <blockquote>{props}</blockquote>
+      blockquote: item => {
+        return `<br><iframe><blockquote>${item.content}</blockquote></iframe>`
+      },
+      header: item => {
+        const subType = item.options.selectionTabs.current.value
+        return `<${subType}>${item.content}</${subType}>`
+      },
+      paragraph: item => {
+        return `<p>${item.content}</p>`
+      },
+      code: item => {
+        return `<code><iframe>${item.options.selectionTabs.current.value}::
+${item.content}</iframe></code>`
       },
     }
     let result = _.cloneDeep(selected).map(selectedItem => {
-      return typesMapper[selectedItem.type]()
+      return typesMapper[selectedItem.type](selectedItem)
     })
-
-    console.log(result)
-
-    return [...result]
+    let str = result.join("")
+    function listener(e) {
+      e.clipboardData.setData("text/html", str)
+      e.clipboardData.setData("text/plain", str)
+      e.preventDefault()
+    }
+    document.addEventListener("copy", listener)
+    document.execCommand("copy")
+    document.removeEventListener("copy", listener)
   }
 
   const onDragEnd = result => {
@@ -215,12 +245,12 @@ const BlogCreator = () => {
                   </Droppable>
                 </div>
                 <div />
-                {/* <Button
+                <Button
                   style={{ justifySelf: "end", marginTop: 20 }}
                   onClick={formatAndCopyArticle}
                 >
                   Copy & Export
-                </Button> */}
+                </Button>
               </div>
             </DragDropContext>
           </div>

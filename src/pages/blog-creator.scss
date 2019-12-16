@@ -85,6 +85,9 @@
   padding: 1rem;
   border-radius: 8px;
   border: 1px solid transparent;
+  pre[class*="language-"] {
+    margin-top: 0 !important;
+  }
   .edit-button {
     cursor: pointer;
     visibility: hidden;
@@ -117,9 +120,10 @@
   }
 
   .blog-creator__blocks__editor-block__actions {
+    z-index: 1000;
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 1.3rem;
 
     a {
       margin-left: 1rem;

@@ -5,9 +5,16 @@ import Button from "../../components/Button/Button"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
 import "prismjs/components/prism-jsx.min"
+import CustomInput from "../CustomInput/CustomInput"
 
 const CopyableCodeSnippet = props => {
-  const { codeValue, codeLanguage, codeStyle, codeTitleVisibile = true } = props
+  const {
+    codeValue,
+    codeLanguage,
+    codeStyle,
+    codeTitleVisibile = true,
+    editable = false,
+  } = props
   const [isShown, setIsShown] = useState(false)
   const showSuccessToolTip = () => {
     setIsShown(true)
@@ -18,7 +25,7 @@ const CopyableCodeSnippet = props => {
 
   useEffect(() => {
     setTimeout(() => Prism.highlightAll(), 0)
-  }, [codeLanguage])
+  }, [codeLanguage, codeValue])
 
   return (
     <div className="copyable-code-snippet ">
