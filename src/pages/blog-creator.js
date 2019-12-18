@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import _ from "lodash"
 import EditorBlockItem from "../components/EditorBlockItem/EditorBlockItem"
 import Button from "../components/Button/Button"
-import { copy, blockTypes } from "./utils"
+import { copy, blockTypes } from "../utils"
 
 import "./blog-creator.scss"
 
