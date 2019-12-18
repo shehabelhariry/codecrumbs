@@ -5,6 +5,7 @@ import { faSave } from "@fortawesome/free-solid-svg-icons"
 import SelectionTabs from "../SelectionTabs/SelectionTabs"
 import _ from "lodash"
 import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
+import Button from "../Button/Button"
 
 const Editor = ({
   item,
@@ -16,14 +17,15 @@ const Editor = ({
 }) => {
   const [value, setValue] = useState(item.content)
   const [codeValue, setCodeValue] = useState(item.content)
-  const clone = _.cloneDeep(item.options.selectionTabs)
+  const selectionTabClone = _.cloneDeep(item.options.selectionTabs)
+  const clickablesClone = _.cloneDeep(item.options.clickables)
   return (
     <div className={`${blockStyles[item.type]} edit`}>
       <div className="blog-creator__blocks__editor-block__actions">
-        {clone ? (
+        {selectionTabClone ? (
           <SelectionTabs
-            values={clone.values}
-            current={clone.current}
+            values={selectionTabClone.values}
+            current={selectionTabClone.current}
             onTabChange={tab => {
               const newSelected = _.cloneDeep(selected).map(sItem => {
                 if (sItem.id === item.id) {
@@ -35,6 +37,23 @@ const Editor = ({
               setSelected(newSelected)
             }}
           />
+        ) : null}
+        {clickablesClone.length > 0 ? (
+          <div className="selection-tabs">
+            <span>Click to copy</span>
+            <div>
+              {clickablesClone.map(clickable => {
+                return (
+                  <a
+                    className="selection-tabs__item action"
+                    onClick={clickable.action}
+                  >
+                    {clickable.type}
+                  </a>
+                )
+              })}
+            </div>
+          </div>
         ) : null}
       </div>
       <span className={`content  ${item.options.selectionTabs.current.value}`}>

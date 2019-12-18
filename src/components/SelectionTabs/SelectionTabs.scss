@@ -1,12 +1,32 @@
 .selection-tabs {
   padding: 0.5rem 0;
+  border: 1px solid #eaeaea;
+  padding: 10px;
+  margin: 0.5rem;
+  span {
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
 }
-.selection-tabs__item {
+a.selection-tabs__item {
   border: 1px solid #eaeaea;
   padding: 0 0.5rem;
   border-radius: 4px;
-  margin-left: 0.5rem;
+  margin-left: 0.5rem !important;
   &.active {
     background: #eaeaea;
+  }
+  &:first-child {
+    margin-left: 0px !important;
+  }
+  &.action {
+    border-radius: 100px;
+    color: #36c7bb;
+    background: white;
+    &:hover {
+      background: #36c7bb;
+      color: white;
+    }
   }
 }

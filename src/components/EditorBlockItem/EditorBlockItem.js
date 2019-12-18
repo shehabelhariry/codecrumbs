@@ -65,9 +65,8 @@ const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
           ) : (
             <span
               className={`content ${item.options.selectionTabs.current.value}`}
-            >
-              {item.content}
-            </span>
+              dangerouslySetInnerHTML={{ __html: item.content }}
+            />
           )}
         </div>
       )}

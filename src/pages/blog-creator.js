@@ -2,9 +2,11 @@ import React, { useState, useRef } from "react"
 import Layout from "../components/Layout"
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd"
 import _ from "lodash"
-import "./blog-creator.scss"
 import EditorBlockItem from "../components/EditorBlockItem/EditorBlockItem"
 import Button from "../components/Button/Button"
+import { copy, blockTypes } from "./utils"
+
+import "./blog-creator.scss"
 
 const grid = 8
 
@@ -27,68 +29,7 @@ const getListStyle = isDraggingOver => ({
 })
 
 const BlogCreator = () => {
-  const [items, setItems] = useState([
-    {
-      id: "0",
-      type: "paragraph",
-      content: "Paragraph",
-      options: {
-        selectionTabs: {
-          values: [
-            { label: "italic", value: "p-italic" },
-            { label: "bold", value: "p-bold" },
-            { label: "bold-italic", value: "p-bold-italic" },
-            { label: "default", value: "p-default" },
-          ],
-          current: { label: "default", value: "p-default" },
-        },
-      },
-    },
-    {
-      id: "1",
-      type: "header",
-      content: "Header",
-      options: {
-        selectionTabs: {
-          values: [
-            { label: "h1", value: "h1" },
-            { label: "h2", value: "h2" },
-            { label: "h3", value: "h3" },
-            { label: "h4", value: "h4" },
-            { label: "h5", value: "h5" },
-            { label: "h6", value: "h6" },
-          ],
-          current: { label: "h1", value: "h1" },
-        },
-      },
-    },
-    {
-      id: "2",
-      type: "blockquote",
-      content: "Blockquote",
-      options: {
-        selectionTabs: {
-          values: [],
-          current: { label: "blockquote", value: "blockquote" },
-        },
-      },
-    },
-    {
-      id: "3",
-      type: "code",
-      content: "</>",
-      options: {
-        selectionTabs: {
-          values: [
-            { label: "JS", value: "js" },
-            { label: "CSS", value: "css" },
-            { label: "HTML", value: "html" },
-          ],
-          current: { label: "HTML", value: "html" },
-        },
-      },
-    },
-  ])
+  const [items] = useState(blockTypes)
   const [selected, setSelected] = useState([])
 
   const formatAndCopyArticle = () => {
@@ -105,21 +46,16 @@ const BlogCreator = () => {
       },
       code: item => {
         return `<code><iframe>${item.options.selectionTabs.current.value}::
-${item.content}</iframe></code>`
+${item.content}</iframe></code>
+
+`
       },
     }
     let result = _.cloneDeep(selected).map(selectedItem => {
       return typesMapper[selectedItem.type](selectedItem)
     })
     let str = result.join("")
-    function listener(e) {
-      e.clipboardData.setData("text/html", str)
-      e.clipboardData.setData("text/plain", str)
-      e.preventDefault()
-    }
-    document.addEventListener("copy", listener)
-    document.execCommand("copy")
-    document.removeEventListener("copy", listener)
+    copy(str)
   }
 
   const onDragEnd = result => {

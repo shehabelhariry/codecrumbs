@@ -51,6 +51,10 @@
   width: 1200px;
   margin: 0 auto;
   padding-left: 1rem;
+  @media all and (max-width: 768px) {
+    width: 100%;
+    grid-template-columns: 1fr 10fr;
+  }
 }
 
 .blog-creator__blocks__block {
