@@ -85,4 +85,25 @@ export let blockTypes = [
       },
     },
   },
+  {
+    id: "4",
+    type: "code-group",
+    content: [
+      { codeType: "html", codeValue: "<h1>Hello</h1>" },
+      { codeType: "js", codeValue: "const a = 4;" },
+    ],
+    options: [
+      {
+        clickables: [],
+        selectionTabs: {
+          values: [
+            { label: "JS", value: "js" },
+            { label: "CSS", value: "css" },
+            { label: "HTML", value: "html" },
+          ],
+          current: { label: "HTML", value: "html" },
+        },
+      },
+    ],
+  },
 ]

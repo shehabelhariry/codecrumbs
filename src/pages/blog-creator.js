@@ -120,7 +120,9 @@ ${item.content}</iframe></code>
                                 )}
                                 className="blog-creator__blocks__block"
                               >
-                                {item.content}
+                                {item.type !== "code-group"
+                                  ? item.content
+                                  : "</> group"}
                               </div>
                             )}
                           </Draggable>

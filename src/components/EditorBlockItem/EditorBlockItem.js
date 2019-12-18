@@ -4,6 +4,7 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons"
 import Editor from "./Editor"
 import "./EditorBlockItem.scss"
 import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
+import GroupCode from "../GroupCode/GroupCode"
 
 const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
   const [isEdit, setIsEdit] = useState(false)
@@ -11,6 +12,7 @@ const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
   const blockStyles = {
     paragraph: "blog-creator__blocks__editor-block--paragraph",
     header: "blog-creator__blocks__editor-block--header",
+    "code-group": "ssss",
   }
 
   const deleteItem = item => {
@@ -62,10 +64,15 @@ const EditorBlockItem = ({ item, onSave, setSelected, selected, items }) => {
                 }}
               />
             </span>
-          ) : (
+          ) : item.type !== "code-group" ? (
             <span
               className={`content ${item.options.selectionTabs.current.value}`}
               dangerouslySetInnerHTML={{ __html: item.content }}
+            />
+          ) : (
+            <GroupCode
+              types={item.content.map(i => i.codeType)}
+              codeSnippets={item.content.map(i => i.codeValue)}
             />
           )}
         </div>

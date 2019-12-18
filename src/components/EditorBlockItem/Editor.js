@@ -5,7 +5,7 @@ import { faSave } from "@fortawesome/free-solid-svg-icons"
 import SelectionTabs from "../SelectionTabs/SelectionTabs"
 import _ from "lodash"
 import CopyableCodeSnippet from "../CopyableCodeSnippet/CopyableCodeSnippet"
-import Button from "../Button/Button"
+import GroupCodeEditor from "../GroupCodeEditor/GroupCodeEditor"
 
 const Editor = ({
   item,
@@ -15,10 +15,19 @@ const Editor = ({
   setIsEdit,
   onSave,
 }) => {
-  const [value, setValue] = useState(item.content)
-  const [codeValue, setCodeValue] = useState(item.content)
-  const selectionTabClone = _.cloneDeep(item.options.selectionTabs)
-  const clickablesClone = _.cloneDeep(item.options.clickables)
+  console.log(item.type)
+  const [value, setValue] = useState(
+    item.type !== "code-group" ? item.content : []
+  )
+  const [codeValue, setCodeValue] = useState(
+    item.type !== "code-group" ? item.content : []
+  )
+  const selectionTabClone = _.cloneDeep(
+    item.type !== "code-group" ? item.options.selectionTabs : null
+  )
+  const clickablesClone = _.cloneDeep(
+    item.type !== "code-group" ? item.options.clickables : null
+  )
   return (
     <div className={`${blockStyles[item.type]} edit`}>
       <div className="blog-creator__blocks__editor-block__actions">
@@ -38,7 +47,7 @@ const Editor = ({
             }}
           />
         ) : null}
-        {clickablesClone.length > 0 ? (
+        {clickablesClone && clickablesClone.length > 0 ? (
           <div className="selection-tabs">
             <span>Click to copy</span>
             <div>
@@ -56,7 +65,13 @@ const Editor = ({
           </div>
         ) : null}
       </div>
-      <span className={`content  ${item.options.selectionTabs.current.value}`}>
+      <span
+        className={`content  ${
+          item.options.selectionTabs
+            ? item.options.selectionTabs.current.value
+            : ""
+        }`}
+      >
         {item.type === "code" ? (
           <CopyableCodeSnippet
             codeValue={codeValue}
@@ -73,24 +88,29 @@ const Editor = ({
             }}
           />
         ) : null}
-        <CustomInput
-          defaultValue={item.content}
-          placeholder={item.type}
-          onChange={e => {
-            setValue(e.target.value)
-            if (item.type === "code") {
-              setCodeValue(e.target.value)
+        {item.type !== "code-group" ? (
+          <CustomInput
+            defaultValue={item.content}
+            placeholder={item.type}
+            onChange={e => {
+              setValue(e.target.value)
+              if (item.type === "code") {
+                setCodeValue(e.target.value)
+              }
+            }}
+            type={
+              item.type === "paragraph" ||
+              item.type === "blockquote" ||
+              item.type === "code"
+                ? "textarea"
+                : null
             }
-          }}
-          type={
-            item.type === "paragraph" ||
-            item.type === "blockquote" ||
-            item.type === "code"
-              ? "textarea"
-              : null
-          }
-          noMargin
-        />
+            noMargin
+          />
+        ) : null}
+        {item.type === "code-group" ? (
+          <GroupCodeEditor setValue={setValue} item={item} />
+        ) : null}
       </span>
       <div className="blog-creator__blocks__editor-block__actions">
         <a
