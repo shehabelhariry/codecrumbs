@@ -1,3 +1,5 @@
+import _ from "lodash"
+
 export const copy = str => {
   function listener(e) {
     e.clipboardData.setData("text/html", str)
@@ -18,12 +20,12 @@ export let blockTypes = [
     options: {
       selectionTabs: {
         values: [
-          { label: "italic", value: "p-italic" },
-          { label: "bold", value: "p-bold" },
-          { label: "bold-italic", value: "p-bold-italic" },
-          { label: "default", value: "p-default" },
+          { label: "italic", value: "p-italic", disabled: false },
+          { label: "bold", value: "p-bold", disabled: false },
+          { label: "bold-italic", value: "p-bold-italic", disabled: false },
+          { label: "default", value: "p-default", disabled: false },
         ],
-        current: { label: "default", value: "p-default" },
+        current: { label: "default", value: "p-default", disabled: false },
       },
       clickables: [
         {
@@ -58,14 +60,14 @@ export let blockTypes = [
       clickables: [],
       selectionTabs: {
         values: [
-          { label: "h1", value: "h1" },
-          { label: "h2", value: "h2" },
-          { label: "h3", value: "h3" },
-          { label: "h4", value: "h4" },
-          { label: "h5", value: "h5" },
-          { label: "h6", value: "h6" },
+          { label: "h1", value: "h1", disabled: false },
+          { label: "h2", value: "h2", disabled: false },
+          { label: "h3", value: "h3", disabled: false },
+          { label: "h4", value: "h4", disabled: false },
+          { label: "h5", value: "h5", disabled: false },
+          { label: "h6", value: "h6", disabled: false },
         ],
-        current: { label: "h1", value: "h1" },
+        current: { label: "h1", value: "h1", disabled: false },
       },
     },
   },
@@ -77,17 +79,18 @@ export let blockTypes = [
       clickables: [],
       selectionTabs: {
         values: [
-          { label: "JS", value: "js" },
-          { label: "CSS", value: "css" },
-          { label: "HTML", value: "html" },
+          { label: "js", value: "js", disabled: false },
+          { label: "css", value: "css", disabled: false },
+          { label: "html", value: "html", disabled: false },
         ],
-        current: { label: "HTML", value: "html" },
+        current: { label: "html", value: "html", disabled: false },
       },
     },
   },
   {
     id: "4",
     type: "code-group",
+    availableCodeTypes: ["html", "css", "js", "jsx"],
     content: [
       { codeType: "html", codeValue: "<h1>Hello</h1>" },
       { codeType: "js", codeValue: "const a = 4;" },
@@ -97,13 +100,64 @@ export let blockTypes = [
         clickables: [],
         selectionTabs: {
           values: [
-            { label: "JS", value: "js" },
-            { label: "CSS", value: "css" },
-            { label: "HTML", value: "html" },
+            { label: "js", value: "js", disabled: false },
+            { label: "css", value: "css", disabled: false },
+            { label: "html", value: "html", disabled: false },
           ],
-          current: { label: "HTML", value: "html" },
+          current: { label: "html", value: "html", disabled: false },
+        },
+      },
+      {
+        clickables: [],
+        selectionTabs: {
+          values: [
+            { label: "js", value: "js", disabled: false },
+            { label: "css", value: "css", disabled: false },
+            { label: "html", value: "html", disabled: false },
+          ],
+          current: { label: "JS", value: "js", disabled: false },
         },
       },
     ],
   },
 ]
+
+export const getObjWithUpdatedCodeType = (obj, currentType, targetType) => {
+  const clonedObj = _.cloneDeep(obj)
+  //update type in content
+  const objIndex = clonedObj.content.reduce((item, cu, i) => {
+    if (cu.codeType === currentType) {
+      item = i
+    }
+    return item
+  }, null)
+  clonedObj.content[objIndex].codeType = targetType
+  // //update type in selection tab
+  clonedObj.options[objIndex].selectionTabs.current.label = targetType
+  clonedObj.options[objIndex].selectionTabs.current.value = targetType
+  return clonedObj
+}
+
+export const getObjectWithAddedGroupCodeItem = (obj, renderedTypes) => {
+  const clonedObj = _.cloneDeep(obj)
+  //decied on the type that should be added
+  const targetType = _.difference(
+    clonedObj.availableCodeTypes,
+    renderedTypes
+  )[0]
+  //add the type with the code to the content
+  clonedObj.content.push({ codeType: targetType, codeValue: "</>" })
+  //add options to the created item
+  clonedObj.options.push({
+    clickables: [],
+    selectionTabs: {
+      values: [
+        renderedTypes.map(i => ({ label: i, value: i, disabled: false })),
+      ],
+      current: { label: targetType, value: targetType, disabled: false },
+    },
+  })
+
+  console.log({ clonedObj })
+  return clonedObj
+}

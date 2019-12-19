@@ -14,8 +14,15 @@ a.selection-tabs__item {
   padding: 0 0.5rem;
   border-radius: 4px;
   margin-left: 0.5rem !important;
+  &.disabled {
+    cursor: not-allowed;
+    color: #eaeaea !important;
+  }
   &.active {
     background: #eaeaea;
+    &.disabled {
+      color: var(--primary-color) !important;
+    }
   }
   &:first-child {
     margin-left: 0px !important;

@@ -50,6 +50,19 @@ ${item.content}</iframe></code>
 
 `
       },
+      "code-group": item => {
+        return `<code><iframe>
+group<<<${item.content.map(i => i.codeType).join(",")}>>>
+${item.content.map(
+  i => `${i.codeType}::
+${i.codeValue}
+ 
+ ===       `
+).join(`
+`)}
+---
+        </iframe></code>`
+      },
     }
     let result = _.cloneDeep(selected).map(selectedItem => {
       return typesMapper[selectedItem.type](selectedItem)

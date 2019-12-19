@@ -12,10 +12,12 @@ const SelectionTabs = ({ onTabChange, values, current }) => {
             key={tab.value}
             className={`selection-tabs__item ${
               tab.value === activeTab ? "active" : ""
-            }`}
+            } ${tab.disabled ? "disabled" : ""}`}
             onClick={() => {
-              setActiveTab(tab.value)
-              onTabChange(Object.assign({}, tab))
+              if (!tab.disabled) {
+                setActiveTab(tab.value)
+                onTabChange(Object.assign({}, tab))
+              }
             }}
           >
             {tab.label}
