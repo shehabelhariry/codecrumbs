@@ -4,8 +4,7 @@ import Prism from "prismjs"
 import Button from "../../components/Button/Button"
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
-import "prismjs/components/prism-jsx.min"
-import CustomInput from "../CustomInput/CustomInput"
+import PrismJsx from "prismjs/components/prism-jsx.min"
 
 const CopyableCodeSnippet = props => {
   const {
