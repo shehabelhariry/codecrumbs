@@ -3,7 +3,6 @@ import type { ReactNode } from "react"
 import { Inter } from "next/font/google"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
-import SubscribeForm from "@/components/SubscribeForm/SubscribeForm"
 import { site } from "@/lib/site"
 
 import "@/styles/globals.scss"
@@ -36,7 +35,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className={styles.page}>
           <Header />
           <main className={styles.main}>{children}</main>
-          <SubscribeForm />
           <Footer />
         </div>
       </body>
