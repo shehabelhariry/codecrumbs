@@ -1,16 +1,20 @@
 .intro {
-  max-width: var(--content-width);
-  margin: 0 auto 3.5rem;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding-block: clamp(2rem, 8vw, 5.5rem) clamp(3rem, 8vw, 6rem);
   text-align: center;
   text-wrap: balance;
 
   h1 {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: clamp(2.25rem, 6vw, 4.25rem);
+    line-height: 1.1;
   }
 
   p {
-    margin: 0;
-    font-size: 1.125rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    font-size: clamp(1.125rem, 1.6vw, 1.3125rem);
   }
 
   // Thin mustard rule under the introduction
@@ -19,7 +23,7 @@
     display: block;
     width: 2.5rem;
     height: 3px;
-    margin: 1.5rem auto 0;
+    margin: 2rem auto 0;
     border-radius: 2px;
     background-color: var(--color-accent);
   }
