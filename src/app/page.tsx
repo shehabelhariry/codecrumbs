@@ -14,19 +14,24 @@ export default async function HomePage() {
       <section className={styles.about} aria-label="About me">
         <div>
           <p>
-            I am Shehab, a man in his mid 30&apos;s trying to find out what he
-            would be when he grows up. On the way, I worked 10 years in tech.
-            Moved countries and learned a lot about life the easy and hard way.
+            I am Shehab, a man in his mid-30s trying to find out what to be when
+            I grow up. On the way, I worked 10 years in tech, moved countries,
+            and learned a lot about life the easy and hard way.
           </p>
           <p>
-            I have been finding myself saying what a world a lot in the past
-            couple of months. Sometimes in awe and amazement but other times in
-            sheer surprise.
+            What a world! Or <span className={styles.waw}>[waw]</span> for
+            short. I have been finding myself saying it a lot in the past couple
+            of months. Sometimes in awe and amazement, but other times in sheer
+            surprise and disbelief.
           </p>
           <p>
-            I created this blog based on an old website of mine. The old one I
-            created in 2 months, this one in 2 hours.{" "}
-            <span className={styles.waw}>[waw].</span>
+            For example, this blog was created based on an old website of mine,
+            codecrumbs (RIP, my old friend). The old one took about 2 months to
+            build and get live. This one was built in 2 hours{" "}
+            <span className={styles.waw}>[waw]</span>. I can still remember the
+            logic that I implemented to get the layout to work in codecrumbs,
+            while I barely looked at the code for this one{" "}
+            <span className={styles.waw}>[waw]</span>.
           </p>
         </div>
         <figure className={styles.stamp}>
