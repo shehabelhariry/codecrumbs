@@ -1,6 +1,6 @@
-![LOGO](logo.png)
+# [what a world].
 
-It's longer than a tweet but shorter than your average blog post
+Code, careers, and starting over somewhere new. A personal blog by Shehab Elhariry, live at https://whataworld.dev.
 
 ## Development
 

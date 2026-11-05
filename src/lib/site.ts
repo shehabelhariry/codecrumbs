@@ -1,8 +1,7 @@
 export const site = {
-  title: "[codecrumbs].",
-  name: "Codecrumbs",
-  description:
-    "It's longer than a tweet but shorter than your average blog post",
+  name: "What a World",
+  wordmark: "what a world",
+  description: "Code, careers, and starting over somewhere new",
   author: "Shehab Elhariry",
   twitter: "cheha6",
 } as const

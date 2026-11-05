@@ -21,7 +21,7 @@ export async function generateMetadata({
   const post = await getPost((await params).slug)
   const images = post.socialImage ? [absoluteUrl(post.socialImage)] : undefined
   return {
-    title: `${site.name}: ${post.title}`,
+    title: `${post.title} · ${site.name}`,
     openGraph: {
       title: post.title,
       siteName: site.name,

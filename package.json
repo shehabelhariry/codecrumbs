@@ -1,7 +1,7 @@
 {
-  "name": "codecrumbs",
+  "name": "whataworld",
   "private": true,
-  "description": "It's longer than a tweet but shorter than your average blog post",
+  "description": "Code, careers, and starting over somewhere new",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
