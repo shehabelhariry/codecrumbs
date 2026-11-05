@@ -12,10 +12,11 @@ export type PostFrontmatter = {
   // One line shown under the title on cards; cards skip it while empty
   summary?: string
   tag: string
-  color: string
   author: string
-  authorImage: string
-  previewImage: string
+  // Leftovers from the old site; no longer displayed
+  color?: string
+  authorImage?: string
+  previewImage?: string
   socialImage?: string
   draft?: boolean
 }
