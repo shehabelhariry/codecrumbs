@@ -12,10 +12,10 @@ export default function Header() {
           href="/"
           aria-label={`${site.name}, home`}
         >
-          <span className={styles.full}>{site.wordmark}</span>
-          <span className={styles.short} aria-hidden="true">
-            {site.shortWordmark}
-          </span>
+          {/* [what a world]. folds into [waw]. on hover */}
+          [w<span className={styles.fold}>hat </span>a
+          <span className={styles.fold}> </span>w
+          <span className={styles.fold}>orld</span>].
         </Link>
         <div className={styles.actions}>
           <Link className={styles.link} href="/blog/">
