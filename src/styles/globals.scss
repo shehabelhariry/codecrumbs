@@ -6,8 +6,7 @@
   --border: #e3e7ee;
   --accent: #2563eb;
   --bracket: #3b82f6;
-  --page-width: 64rem;
-  --content-width: 42rem;
+  --page-width: 48rem;
   --gutter: 1.25rem;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   color-scheme: light;
@@ -102,11 +101,6 @@ input {
 // One page width with side gutters, used by every page
 .container {
   width: min(100% - 2 * var(--gutter), var(--page-width));
-  margin-inline: auto;
-}
-
-.narrow {
-  width: min(100% - 2 * var(--gutter), var(--content-width));
   margin-inline: auto;
 }
 

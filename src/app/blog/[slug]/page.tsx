@@ -43,7 +43,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const { Content } = post
 
   return (
-    <article className="narrow">
+    <article className="container">
       <PostHeader post={post} />
       <div className={styles.body}>
         <Content />
