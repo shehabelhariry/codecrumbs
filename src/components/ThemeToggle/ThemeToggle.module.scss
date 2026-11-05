@@ -1,8 +1,13 @@
 .toggle {
   display: flex;
-  padding: 0 0 0 1rem;
+  padding: 0.25rem;
   border: 0;
+  border-radius: 6px;
   background: none;
+  color: var(--muted);
   cursor: pointer;
-  color: var(--dark-theme-trigger-color);
+
+  &:hover {
+    color: var(--text);
+  }
 }

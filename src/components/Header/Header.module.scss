@@ -1,28 +1,22 @@
 .header {
-  display: flex;
-  justify-content: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
 }
 
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding-right: 1rem;
+  padding-block: 1rem;
+}
+
+.logo {
+  color: var(--text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
 }
 
 .bracket {
-  color: var(--primary-color);
-}
-
-.title {
-  padding: 0 1rem;
-  font-family: var(--font-logo), cursive;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  text-decoration: none;
+  color: var(--bracket);
 }

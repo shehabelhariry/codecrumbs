@@ -43,14 +43,12 @@ export default async function PostPage({ params }: PostPageProps) {
   const { Content } = post
 
   return (
-    <article>
+    <article className="narrow">
       <PostHeader post={post} />
-      <div className={styles.wrapper}>
-        <ShareLinks post={post} />
-        <div className={styles.body}>
-          <Content />
-        </div>
+      <div className={styles.body}>
+        <Content />
       </div>
+      <ShareLinks post={post} />
     </article>
   )
 }

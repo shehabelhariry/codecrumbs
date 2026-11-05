@@ -1,64 +1,37 @@
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
-  align-items: start;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding-top: 2rem;
-
-  @media all and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem;
-  }
-}
-
 .body {
-  min-width: 0;
+  font-size: 1.125rem;
+  line-height: 1.75;
 
-  p {
-    font-size: 1.4rem;
-    line-height: 1.8rem;
+  h2 {
+    margin-top: 2.5rem;
   }
 
-  h2,
-  h3,
-  h4 {
-    margin-top: 3rem;
-
-    &::before {
-      content: "[-] ";
-      color: var(--primary-color);
-    }
+  h3 {
+    margin-top: 2rem;
   }
 
   blockquote {
-    margin: 3rem 1.45rem;
-    padding: 0 1rem;
-    border-left: 15px solid var(--border-color);
+    margin-inline: 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--bracket);
+    color: var(--muted);
+    font-size: 1.25rem;
 
     p {
-      font-size: 1.8rem;
-      line-height: 2.2rem;
-      font-style: italic;
+      margin: 0;
     }
-  }
-
-  a {
-    color: var(--primary-color);
   }
 
   img {
     display: block;
-    width: 80%;
-    margin: 0 auto 1.45rem;
+    margin: 2rem auto;
+    border-radius: 8px;
   }
 
   :not(pre) > code {
-    padding: 0 4px;
+    padding: 0.1em 0.35em;
     border-radius: 4px;
-    background: var(--highlight-background-color);
-    color: var(--highlight-font-color);
-    font-size: 0.85em;
+    background: var(--surface);
+    font-size: 0.875em;
   }
 }

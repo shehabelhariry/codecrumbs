@@ -1,56 +1,47 @@
 .codeBlock {
   position: relative;
+  margin-bottom: 1.5rem;
 
   pre {
-    max-width: 94vw;
     margin: 0;
-    padding: 1.2rem 1rem;
-    overflow: auto;
+    padding: 1rem 1.25rem;
+    overflow-x: auto;
+    border: 1px solid var(--border);
     border-radius: 8px;
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.875rem;
+    line-height: 1.6;
   }
 
   code {
     display: grid;
   }
-
-  &:hover .copy,
-  .copy:focus-visible {
-    opacity: 1;
-  }
 }
 
 .toolbar {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0.5rem;
+  right: 0.5rem;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.copy {
-  margin-top: 0.5rem;
-  padding: 0.1rem 0.8rem;
-  border: 2px solid var(--primary-color);
-  border-radius: 600px;
-  background: #272822;
-  color: var(--primary-color);
-  font-weight: 600;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+.language {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: lowercase;
 }
 
-.language {
-  min-width: 50px;
-  padding: 0.3rem 0.5rem;
-  border-radius: 0 8px 0 4px;
-  background-color: #949494;
-  color: white;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-align: right;
-  text-transform: uppercase;
+.copy {
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text);
+  }
 }

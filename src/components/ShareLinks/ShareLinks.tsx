@@ -10,34 +10,30 @@ export default function ShareLinks({ post }: ShareLinksProps) {
   const title = encodeURIComponent(post.title)
   const links = [
     {
-      label: "f",
-      name: "Facebook",
-      href: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-    },
-    {
-      label: "X",
-      name: "X (Twitter)",
+      name: "X",
       href: `https://x.com/intent/tweet?text=${title}&url=${url}&via=${site.twitter}`,
     },
     {
-      label: "in",
       name: "LinkedIn",
       href: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    },
+    {
+      name: "Facebook",
+      href: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
     },
   ]
 
   return (
     <aside className={styles.share}>
+      <span>Share on</span>
       {links.map((link) => (
         <a
           key={link.name}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Share on ${link.name}`}
-          className={styles.link}
         >
-          {link.label}
+          {link.name}
         </a>
       ))}
     </aside>

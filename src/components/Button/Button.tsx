@@ -19,7 +19,7 @@ export default function Button({
 
   return (
     <button className={classes} {...props}>
-      <span className={styles.label}>{children}</span>
+      {children}
     </button>
   )
 }

@@ -6,8 +6,8 @@ import styles from "./Header.module.scss"
 export default function Header() {
   return (
     <header className={styles.header}>
-      <nav className={styles.navigation}>
-        <Link className={styles.title} href="/">
+      <nav className={`container ${styles.navigation}`}>
+        <Link className={styles.logo} href="/">
           <span className={styles.bracket}>[</span>
           {site.wordmark}
           <span className={styles.bracket}>]</span>.

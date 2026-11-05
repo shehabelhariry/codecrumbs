@@ -1,19 +1,15 @@
-import PostHeader from "@/components/PostHeader/PostHeader"
-import PostPreview from "@/components/PostPreview/PostPreview"
+import PostList from "@/components/PostList/PostList"
 import { getPosts } from "@/lib/posts"
+import { site } from "@/lib/site"
 import styles from "./page.module.scss"
 
 export default async function HomePage() {
-  const [featured, ...rest] = await getPosts()
+  const posts = await getPosts()
 
   return (
-    <>
-      <PostHeader post={featured} featured />
-      <div className={styles.posts}>
-        {rest.map((post) => (
-          <PostPreview key={post.slug} post={post} />
-        ))}
-      </div>
-    </>
+    <div className="container">
+      <p className={styles.intro}>{site.description}.</p>
+      <PostList posts={posts} />
+    </div>
   )
 }

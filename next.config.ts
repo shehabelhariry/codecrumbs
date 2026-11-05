@@ -21,8 +21,10 @@ const withMDX = createMDX({
       "remark-mdx-frontmatter",
     ],
     rehypePlugins: [
-      // Monokai in both themes, like the old Prism setup
-      ["rehype-pretty-code", { theme: "monokai" }],
+      [
+        "rehype-pretty-code",
+        { theme: { light: "github-light", dark: "github-dark" } },
+      ],
     ],
   },
 })

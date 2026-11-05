@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { Darker_Grotesque, Fredoka } from "next/font/google"
+import { Inter } from "next/font/google"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
 import SubscribeForm from "@/components/SubscribeForm/SubscribeForm"
@@ -9,16 +9,9 @@ import { site } from "@/lib/site"
 import "@/styles/globals.scss"
 import styles from "./layout.module.scss"
 
-const bodyFont = Darker_Grotesque({
+const sans = Inter({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-body",
-})
-
-const logoFont = Fredoka({
-  subsets: ["latin"],
-  weight: "600",
-  variable: "--font-logo",
+  variable: "--font-sans",
 })
 
 // Runs before the first paint so a saved dark theme never flashes light
@@ -35,20 +28,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${bodyFont.variable} ${logoFont.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <div className={styles.container}>
-          <div className={styles.content}>
-            <Header />
-            {children}
-          </div>
+        <div className={styles.page}>
+          <Header />
+          <main className={styles.main}>{children}</main>
           <SubscribeForm />
           <Footer />
         </div>

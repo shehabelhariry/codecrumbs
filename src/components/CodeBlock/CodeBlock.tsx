@@ -20,14 +20,14 @@ export default function CodeBlock({ children, ...props }: CodeBlockProps) {
   return (
     <div className={styles.codeBlock}>
       <div className={styles.toolbar}>
-        <button type="button" className={styles.copy} onClick={copy}>
-          {copied ? "Copied!" : "Copy"}
-        </button>
         {language && (
           <span className={styles.language} data-code-language>
             {language}
           </span>
         )}
+        <button type="button" className={styles.copy} onClick={copy}>
+          {copied ? "Copied!" : "Copy"}
+        </button>
       </div>
       <pre ref={preRef} {...props}>
         {children}

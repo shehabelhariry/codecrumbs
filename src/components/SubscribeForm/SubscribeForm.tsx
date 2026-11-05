@@ -9,24 +9,24 @@ const HONEYPOT_NAME = "b_00df214eb4af39941cd2da674_57e40dd829"
 export default function SubscribeForm() {
   return (
     <section className={styles.subscribe}>
-      <p>Never Miss a Codecrumb!</p>
-      <form action={MAILCHIMP_ACTION} method="post" target="_blank">
-        <div className={styles.field}>
+      <div className={`container ${styles.inner}`}>
+        <p>Get new posts by email.</p>
+        <form action={MAILCHIMP_ACTION} method="post" target="_blank">
           <input
             type="email"
             name="EMAIL"
-            placeholder="Type Your Email address"
+            placeholder="you@example.com"
             aria-label="Email address"
             required
           />
-          <Button type="submit" name="subscribe">
+          <Button type="submit" name="subscribe" appearance="primary">
             Subscribe
           </Button>
-        </div>
-        <div className={styles.honeypot} aria-hidden="true">
-          <input type="text" name={HONEYPOT_NAME} tabIndex={-1} />
-        </div>
-      </form>
+          <div className={styles.honeypot} aria-hidden="true">
+            <input type="text" name={HONEYPOT_NAME} tabIndex={-1} />
+          </div>
+        </form>
+      </div>
     </section>
   )
 }

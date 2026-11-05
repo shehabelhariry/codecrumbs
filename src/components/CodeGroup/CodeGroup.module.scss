@@ -1,8 +1,13 @@
 .codeGroup {
-  margin-bottom: 1.45rem;
+  margin-bottom: 1.5rem;
 
-  figure {
+  figure,
+  [role="tabpanel"] > * {
     margin: 0;
+  }
+
+  pre {
+    border-top-left-radius: 0;
   }
 
   // The tab already names the language
@@ -15,17 +20,29 @@
   display: flex;
 
   button {
-    padding: 0.5rem 2rem;
-    border: 0;
-    background: #bdbdbd;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 800;
-    text-transform: uppercase;
+    margin-bottom: -1px;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--border);
+    border-bottom: 0;
+    background: none;
+    color: var(--muted);
+    font-size: 0.8125rem;
     cursor: pointer;
+
+    & + button {
+      border-left: 0;
+    }
+    &:first-child {
+      border-top-left-radius: 8px;
+    }
+    &:last-child {
+      border-top-right-radius: 8px;
+    }
   }
 
   .active {
-    background: var(--primary-color);
+    color: var(--accent);
+    font-weight: 600;
+    background: var(--bg);
   }
 }

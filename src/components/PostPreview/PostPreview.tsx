@@ -7,20 +7,18 @@ import styles from "./PostPreview.module.scss"
 export default function PostPreview({ post }: { post: Post }) {
   return (
     <Link className={styles.card} href={`/blog/${post.slug}/`}>
-      {post.previewImage && (
-        <div
-          className={styles.image}
-          style={
-            {
-              "--post-color": post.color,
-              backgroundImage: `url(${withBasePath(post.previewImage)})`,
-            } as CSSProperties
-          }
-        />
-      )}
+      <div
+        className={styles.image}
+        style={{ "--post-color": post.color } as CSSProperties}
+      >
+        <img src={withBasePath(post.previewImage)} alt="" />
+      </div>
       <div className={styles.content}>
-        <div className={styles.tag}>{post.tag}</div>
-        <h3 className={styles.title}>{post.title}</h3>
+        <span className="tag">{post.tag}</span>
+        <h2 className={styles.title}>{post.title}</h2>
+        <time className={styles.date} dateTime={post.date}>
+          {post.formattedDate}
+        </time>
       </div>
     </Link>
   )
