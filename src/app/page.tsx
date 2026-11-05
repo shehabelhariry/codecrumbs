@@ -11,11 +11,8 @@ export default async function HomePage() {
       <section className={styles.intro}>
         <h1>In the search for diamond we found gold (or did we)</h1>
       </section>
-      <section className={styles.about} aria-labelledby="about">
+      <section className={styles.about} aria-label="About me">
         <div>
-          <h2 id="about" className={styles.sectionTitle}>
-            About me
-          </h2>
           <p>
             I am Shehab a man in his mid 30&apos;s trying to find out what he
             would be when he grows up. On the way, worked 10 years in tech.
