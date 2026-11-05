@@ -13,7 +13,7 @@ npm run build   # static export to out/
 npm start       # serve out/ locally
 ```
 
-Pushing to `master` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
+Pushing to `codecrumbs-2026` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
 
 ## Writing a post
 
