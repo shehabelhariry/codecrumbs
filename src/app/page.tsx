@@ -17,9 +17,9 @@ export default async function HomePage() {
             About me
           </h2>
           <p>
-            I am Shehab a mid 30&apos;s man trying to find out what he would be
-            when he grows up. On the way, worked 10 years in tech. Moved
-            countries and learned a lot about life the easy and hard way.
+            I am Shehab a man in his mid 30&apos;s trying to find out what he
+            would be when he grows up. On the way, worked 10 years in tech.
+            Moved countries and learned a lot about life the easy and hard way.
           </p>
           <p>
             I have been finding myself saying what a world a lot in the past
