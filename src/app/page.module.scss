@@ -1,23 +1,17 @@
 .intro {
   max-width: 56rem;
   margin: 0 auto;
-  padding-block: clamp(2rem, 8vw, 5.5rem) clamp(3rem, 8vw, 6rem);
+  padding-block: clamp(2rem, 8vw, 5.5rem) clamp(2.5rem, 6vw, 4.5rem);
   text-align: center;
   text-wrap: balance;
 
   h1 {
-    margin-bottom: 1.25rem;
+    margin: 0;
     font-size: clamp(2rem, 4.5vw, 3.25rem);
     line-height: 1.1;
   }
 
-  p {
-    max-width: 40rem;
-    margin: 0 auto;
-    font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
-  }
-
-  // Thin mustard rule under the introduction
+  // Thin mustard rule under the heading
   &::after {
     content: "";
     display: block;
@@ -26,6 +20,51 @@
     margin: 2rem auto 0;
     border-radius: 2px;
     background-color: var(--color-accent);
+  }
+}
+
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  max-width: 56rem;
+  margin: 0 auto clamp(3.5rem, 8vw, 5.5rem);
+
+  p {
+    margin: 0;
+    font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+// A postage stamp: paper border with perforated edges, slightly tilted.
+// The mask punches half-circles along every edge; the second layer keeps
+// the middle solid. drop-shadow follows the masked shape.
+.stamp {
+  --hole: 7px;
+
+  width: clamp(11rem, 22vw, 15rem);
+  margin: 0;
+  filter: drop-shadow(0 6px 14px rgb(0 0 0 / 0.16));
+  rotate: 3deg;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: calc(var(--hole) * 2);
+    background-color: #fffdf8;
+    mask:
+      radial-gradient(var(--hole) at var(--hole) var(--hole), #0000 97%, #000)
+        round calc(var(--hole) * -1.5) calc(var(--hole) * -1.5) /
+        calc(var(--hole) * 3) calc(var(--hole) * 3),
+      linear-gradient(#000 0 0) no-repeat 50% / calc(100% - var(--hole) * 3)
+        calc(100% - var(--hole) * 3);
   }
 }
 
