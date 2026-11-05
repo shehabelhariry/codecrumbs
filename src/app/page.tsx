@@ -21,6 +21,16 @@ export default async function HomePage() {
             when he grows up. On the way, worked 10 years in tech. Moved
             countries and learned a lot about life the easy and hard way.
           </p>
+          <p>
+            I have been finding myself saying what a world a lot in the past
+            couple of months. Sometimes in awe and amazment but other times in
+            sheer surprise.
+          </p>
+          <p>
+            I created this blog based on an old website of mine. the old one I
+            created in 2 months this one in 2 hours.{" "}
+            <span className={styles.waw}>[waw].</span>
+          </p>
         </div>
         <figure className={styles.stamp}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

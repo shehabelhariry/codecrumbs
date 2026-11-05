@@ -36,6 +36,10 @@
     font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
   }
 
+  p + p {
+    margin-top: 1rem;
+  }
+
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -66,6 +70,12 @@
       linear-gradient(#000 0 0) no-repeat 50% / calc(100% - var(--hole) * 3)
         calc(100% - var(--hole) * 3);
   }
+}
+
+.waw {
+  color: var(--color-ink);
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .sectionTitle {
