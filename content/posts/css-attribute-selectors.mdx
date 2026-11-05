@@ -1,0 +1,83 @@
+---
+title: "When and how to use CSS attribute selectors"
+date: "2019-11-10"
+tag: "CSS"
+color: "#417498"
+author: "Shehab Elhariry"
+authorImage: "/images/authors/shehab-elhariry.jpeg"
+previewImage: "/images/posts/css-attribute-selectors/coding-1-.png"
+socialImage: "/images/posts/css-attribute-selectors/screen-shot-2019-11-10-at-1.34.04-pm.png"
+---
+
+While working as a web developer for the last 2 years, I discovered something about CSS3 attribute selectors. In spite of them being nifty little helpers, the majority of people using CSS are not using them at all
+
+### What the specification says
+
+The CSS specification gives us the ability to select dom items by attributes. The following example will apply the background color to all the elements having the “data-color” attribute.
+
+```css
+[data-color] {
+ background-color: red;
+}
+```
+
+The specification went a step further with the ability to search the attribute value and match certain conditions. The following example will match all the elements that have a class attribute that starts with the string “header”
+
+```html
+<h1 class="header" data-attribute> Header </h1>
+<h1 class="header-blue"> Hello Blue</h1>
+<h1 class="header-red"> Hello Red</h1>
+<h1 class="header-yellow"> Hello Yellow</h1>
+```
+
+```css
+[class^="header"] {
+ padding: 20px;
+}
+```
+
+Similarly, we have:
+
+```css
+[class$="d"] {
+ background-color: red;
+/* Elements that have classes ending with 'd' */
+}
+
+[class*="er"] {
+ background-color: blue;
+/* Elements that have classes that includes 'er' */
+}
+```
+
+## How it's handy
+
+For me, This came in handy in a number of situations when I needed to customize the look and feel of some elements that a library that I was using was creating on the fly without having to dig deep into the library.
+
+The thing that wasn’t clear to me, although it was obvious, is that they work on the whole attribute value as a single value and not space separated. so don’t expect them to work on each and every attribute item for example:
+
+```html
+<h1 class="header" data-attribute> Header </h1>
+<h1 class="header-ui header-blue"> Hello Blue</h1>
+<h1 class="header-red" data-attribute> Hello Red</h1>
+<h1 class=" header-ui">Space at the start</h1>
+```
+
+```css
+[class$="ui"] {
+ background-color: red;
+}
+
+[class^="header"] {
+ background-color: blue;
+}
+```
+
+The first selector in the previous example will match only the last header item and not the second one because it captures the attribute as a whole and not a collection of values. Similarly, the second selector will match the first 2 elements and not the third because it starts with a space. This space can make you spend an extra 2 hours of work searching for the bug hypothetically (*True story)
+
+### Conclusion
+
+This is a trick that you have in CSS that can make your life easier in a lot of situations.
+
+Here is a list of the full selectors available: 
+[https://www.w3schools.com/cssref/css_selectors.asp](https://www.w3schools.com/cssref/css_selectors.asp)

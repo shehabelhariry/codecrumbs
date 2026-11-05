@@ -1,0 +1,134 @@
+---
+title: "Pure CSS menu using :target pseudo selector"
+date: "2019-11-24"
+tag: "CSS"
+color: "#2398AB"
+author: "Shehab Elhariry"
+authorImage: "/images/authors/shehab-elhariry.jpeg"
+previewImage: "/images/posts/css-only-off-canvas/target.svg"
+socialImage: "/images/posts/css-only-off-canvas/screen-shot-2019-11-24-at-12.48.56-pm.png"
+---
+
+CSS has evolved tremendously in the past years. It has introduced animations, grids and pseudo selectors and more... which simplified building beautiful and interactive UI's.
+
+## The old JS way
+
+In the past, for you to build an off-canvas menu with a burger trigger, you had to write some Javascript code to handle the  active class names for your menu. 
+
+So in the normal (closed) state it has a class of `menu` and when the trigger button is clicked the class `expanded` is added to the class list. The close button does the exact opposite.
+
+![Off-canvas menu opening and closing with JavaScript](/images/posts/css-only-off-canvas/captured-3-.gif)
+
+<CodeGroup>
+
+```html
+<div class="header">
+  <a class="trigger" id="open">=</a>
+</div>
+ <div class="menu" id="menu">
+    <ul>
+      <li> <a href="#page1">Page 1</a></li>
+       <li> <a href="#page2">Page 2</a></li>
+       <li> <a href="#page2">Page 3</a></li>
+    </ul>
+   <a href="#!" class="close-button" id="close"> Close</a>
+ </div>
+<h1 class="center">Off Canvas</h1>
+```
+
+```js
+const openButton = document.querySelector('#open');
+const closeButton = document.querySelector('#close');
+const menu =  document.querySelector('#menu');
+ openButton.addEventListener('click', function () {
+   menu.classList.add("expanded");
+});
+closeButton.addEventListener('click', function () {
+   menu.classList.remove("expanded");
+});
+```
+
+```css
+.menu {  
+     position: absolute;
+     width: 100%;  
+     height: 100%;  
+     top: 0;  
+     left: -100%;
+   }
+ .menu.expanded { 
+  left: 0;
+ }
+```
+
+</CodeGroup>
+
+This is a long boiler plate to write to get the simple functionality. Fortunately, CSS came to the rescue.
+
+## Using ":target" pseudo selector
+
+Let's first take a step down memory lane. Anchor tags (Links) were used not only to navigate to external links but to navigate to a certain part of the page.
+
+In the following example, if we click on the link with the href attribute of `#bottom-section`, the page will scroll down to the section with the same id. We will also notice that `#bottom-section` is added to the url of the page in an indication that this is the targeted section at the moment.
+
+```html
+<div>
+   <a href="#bottom-section">Go to Bottom</a> 
+   <p id="top-section">long text......</p>
+   <p id="bottom-section">long text....</p> 
+  <a href="#top-section">Go to Top</a>
+</div>
+```
+
+CSS3 introduced the `target` pseudo class. It's used to style the part of the website that is targeted at moment. So using the same HTML we can give the current targeted section a background to make it more visible to the user when he clicks on its link.
+
+![Clicking a link scrolls to the targeted section and highlights it](/images/posts/css-only-off-canvas/captured-8-.gif)
+
+```css
+:target {
+  background-color: cornsilk;
+}
+```
+
+## Putting :target to use
+
+We can use this to our advantage and write a css logic that enables us to open and close an off canvas menu with no JS. We first give our trigger an href value of `#menu-expanded`. When the user clicks on it the menu is targeted. We use css to change the style of the menu component in that case et Voila!
+
+<CodeGroup>
+
+```html
+<div class="menu-container">
+  <a href="#menu-expanded">=</a>
+  <div id="menu-expanded" class="menu">
+    <ul>...menu items</ul>
+    <a href="#close" class="close-trigger">
+      X
+    </a>
+  </div>
+</div>
+```
+
+```css
+.menu-container {
+  position: relative;
+}
+.menu {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: -100%;
+  top: 0px;
+}
+:target.menu {
+  left: 0;
+}
+```
+
+</CodeGroup>
+
+The menu closes when I click on the close button because the target changes so we are back to the style before the target.
+
+This is the documentation and the support for the target pseudo selector.
+
+[https://developer.mozilla.org/en-US/docs/Web/CSS/:target](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
+ [https://caniuse.com/#feat=mdn-css_selectors_target](https://caniuse.com/#feat=mdn-css_selectors_target)

@@ -1,0 +1,124 @@
+---
+title: "Reminding myself of React's forwardRef"
+date: "2020-08-12"
+tag: "React"
+color: "#2a2c2e"
+author: "Shehab Elhariry"
+authorImage: "/images/authors/shehab-elhariry.jpeg"
+previewImage: "/images/posts/forward-ref/arrows.png"
+socialImage: "/images/posts/forward-ref/screen-shot-2020-08-12-at-9.38.21-pm.png"
+---
+
+This is one of the subjects that you know that you have used before but can't clearly explain. Here I am writing for my future self and hopefully any audience on how and why to use `forwardRef`.
+
+## Focusing inputs since '92
+
+Say you have an input and you wanted to make that input focus. To do that it's pretty easy in React. Just use a prop duh!
+
+```jsx
+const ParentComponent = () => {
+   const inputRef = React.useRef();
+   const focusInput = () => {
+      inputRef.current.focus()
+   }
+   return (
+   <>
+      <button onClick={focusInput}>Focus</button>
+       <input defaultValue="i" ref={inputRef} />
+   </>
+)}
+```
+
+First you create a ref `inputRef`. You pass that ref to the input component. When you click on a button in the same component you have access to the ref and you call the focus function on it.
+
+This is great if you have the input and the component making the action _in the same component_ but sometimes that is not the case.
+
+## Focusing inputs from a parent component
+
+Sometimes you want to handle form items from their parent component. This usually happen if your input controls are not native components but rather more complicated.
+
+Let's create a ParentComponent that renders a button and a `FancyInput` component. When I click on the button I want to focus this input.
+
+```jsx
+const FancyInput = () => {
+   return ( 
+   <>
+      <span>Fancy</span>
+      <input />
+   </>
+)}
+```
+
+```jsx
+const ParentComponent = () => {
+    return (
+     <div>
+        <button>Focus Input</button>
+         <FancyInput/>
+     </div>
+    ) 
+}
+```
+
+So my first instinct for accomplishing this was using `props`. I would create a ref in the ParentComponent pass that ref to the FancyInput as a prop and handle the clicking in the ParentComonent as follows
+
+```jsx
+const ParentComponent = () => {
+   const inputRef = React.useRef()
+   const focusInput = () => {
+      inputRef.current.focus()
+   }
+    return (
+     <div>
+        <button onClick={focuInput}>Focus Input</button>
+         <FancyInput inputRef={inputRef}/>
+     </div>
+    ) 
+}
+```
+
+```jsx
+const FancyInput = (props) => {
+   const { inputRef } = props;
+   return ( 
+   <>
+      <span>Fancy</span>
+      <input ref={inputRef} />
+   </>
+)}
+```
+
+This will work just fine but it feels counter-intuitive. It would be much neater to treat my fancy input like any other input and send the necessary ref in a **ref** attribute. This exactly is the function of `forwardRef`.
+
+## Using forwardRef Api
+
+The small refactor that should be done to the parent component is replacing the `inputRef` prop with the ref native prop
+
+```jsx
+const ParentComponent = () => {
+   const inputRef = React.useRef()
+   const focusInput = () => {
+      inputRef.current.focus()
+   }
+    return (
+     <div>
+        <button onClick={focuInput}>Focus Input</button>
+         <FancyInput ref={inputRef}/>
+     </div>
+    ) 
+}
+```
+
+As for the `FancyInput`, we can use the new(ish) syntax
+
+```jsx
+const FancyInput = React.forwardRef((props, ref) => {
+   return ( 
+   <>
+      <span>Fancy</span>
+      <input ref={ref} />
+   </>
+)})
+```
+
+You will notice that this is quite similar to the example in the documentation and this is true. But hey it's just a reminder.

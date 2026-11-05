@@ -1,0 +1,86 @@
+---
+title: "JS Closure: Putting What I learned into words"
+date: "2019-12-09"
+tag: "JS"
+color: "#e0708a"
+author: "Shehab Elhariry"
+authorImage: "/images/authors/shehab-elhariry.jpeg"
+previewImage: "/images/posts/js-closures/magic.svg"
+socialImage: "/images/posts/js-closures/screen-shot-2019-12-09-at-11.26.52-am.png"
+---
+
+One of the most daunting tasks for me as a developer is defining concepts in response to a question. When someone asks me for example:
+
+## What is closure?
+
+![Reaction GIF](/images/posts/js-closures/tenor.gif)
+
+I find myself hesitating a bit. It's not that I don't know what they are, I use them all the time. It's just that the level of technical communication and readiness to answer that question is not always available.
+
+The best way to cure this is with the help of an example. A piece of code that you can write and explain perfectly and with it explaining the concept. I got mine for closures from [Will Sentance](https://twitter.com/willsentance) and his exceptional course: [JS The Hard parts](https://frontendmasters.com/courses/javascript-hard-parts/) (Check it out it's awesome)
+
+## JS global scope
+
+When starting with JS the first thing you get exposed to after learning the syntax is the concept of scope.  let's look at the following example
+
+```js
+var a = 12;
+
+function doSomethingWithParam (b) {
+  console.log(b)
+} 
+
+function doSomethingWithLocalVariable () {
+  var c = 22
+  console.log(c)
+} 
+
+function doSomethingWithGlobalVariable () {
+ console.log(a)
+}
+
+doSomethingWithParam(4);
+doSomethingWithGlobalVariable();
+```
+
+The function `doSomethingWithParam` is a pure function. When it's called, it takes a param `b` and logs its value. 
+
+The function `doSomethingWithGlobalVariable` doesn't take a param. Instead when it's called it first searches for a local variable to the function.  It doesn't find one so it searches in the global context. It finds the value of `a` and logs it.
+
+> Functions have access to globally defined values.
+
+## Going a step further.
+
+The previous example was really Closure in action. It's a very bad example to explain it though. It's very common in the mind of most people coming from different programming languages to access global variables inside a function. That's nothing new.
+
+Closure is best demonstrated in JS when you start to return a function from another function. Let's take the following example:
+
+```js
+function functionMaker () {
+ let count = 0;
+ return function temp (a) {
+   count++;
+   alert(a + ' function was called ' + count + ' time(s)');
+ }
+}
+
+const alertValueWithCount = functionMaker();
+alertValueWithCount(3);
+alertValueWithCount(4);
+```
+
+`functionMaker` is only used to create instances of `temp`. When we call it the first time, we create an instance of the function `temp` and we save the function inside the variable `alertValueWithCount`.
+
+This means that when we call the function `alertValueWithCount` we call the functionality that is `temp`.
+
+On first call, we should alert the value 3  and the value of the variable `count`. Is count in the local memory of the function? Nope. Is it in the global memory? Definitely not. But where does count come from ? What does JS do?
+
+> JS searches for the value in the place where the original function was declared
+
+That is the magical thing that happens when I declare a function inside another function. I don't return just the other function but with it a persistent memory containing all variables that were there when I declared it. I can access this memory whenever I call the function.
+
+So back to the example. When JS doesn't find `count` in the local memory it searches that persistent memory (its closure) It finds the value of `count`. It increments it from 0 to 1 and then alerts the count.
+
+On second call, we alert the value 4 and the value of the variable `count` which has now been incremented to 2.
+
+This is a very powerful feature of JS. It can help us develop function that are aware of how many times they are called, functions that can only be called one time or functions that can debounce functionality.
