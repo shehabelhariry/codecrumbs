@@ -1,9 +1,10 @@
+import type { Metadata } from "next"
 import PostPreview from "@/components/PostPreview/PostPreview"
 import { getPosts } from "@/lib/posts"
 import { site } from "@/lib/site"
 import styles from "./page.module.scss"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: `${site.name}: All crumbs`,
 }
 

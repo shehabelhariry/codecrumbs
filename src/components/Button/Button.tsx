@@ -1,13 +1,14 @@
-import Link from "next/link"
+import type { ComponentProps } from "react"
 import styles from "./Button.module.scss"
 
+type ButtonProps = ComponentProps<"button"> & { appearance?: "primary" }
+
 export default function Button({
-  href,
   appearance,
   className,
   children,
   ...props
-}) {
+}: ButtonProps) {
   const classes = [
     styles.button,
     appearance === "primary" && styles.primary,
@@ -15,18 +16,10 @@ export default function Button({
   ]
     .filter(Boolean)
     .join(" ")
-  const label = <span className={styles.label}>{children}</span>
 
-  if (href) {
-    return (
-      <Link href={href} className={classes} {...props}>
-        {label}
-      </Link>
-    )
-  }
   return (
     <button className={classes} {...props}>
-      {label}
+      <span className={styles.label}>{children}</span>
     </button>
   )
 }

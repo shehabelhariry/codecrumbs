@@ -1,9 +1,11 @@
 "use client"
 
-import { Children, useState } from "react"
+import { Children, useState, type ReactNode } from "react"
 import styles from "./CodeGroup.module.scss"
 
-export default function CodeTabs({ labels, children }) {
+type CodeTabsProps = { labels: string[]; children: ReactNode }
+
+export default function CodeTabs({ labels, children }: CodeTabsProps) {
   const [active, setActive] = useState(0)
   const panels = Children.toArray(children)
 

@@ -1,8 +1,11 @@
 import { absoluteUrl } from "@/lib/paths"
+import type { Post } from "@/lib/posts"
 import { site } from "@/lib/site"
 import styles from "./ShareLinks.module.scss"
 
-export default function ShareLinks({ post }) {
+type ShareLinksProps = { post: Pick<Post, "slug" | "title"> }
+
+export default function ShareLinks({ post }: ShareLinksProps) {
   const url = encodeURIComponent(absoluteUrl(`/blog/${post.slug}/`))
   const title = encodeURIComponent(post.title)
   const links = [

@@ -1,12 +1,22 @@
+import type { CSSProperties } from "react"
 import Link from "next/link"
+import type { Post } from "@/lib/posts"
 import { withBasePath } from "@/lib/paths"
 import styles from "./PostHeader.module.scss"
 
 // Coloured banner with the post title, used for the featured post on the
 // home page and at the top of each post
-export default function PostHeader({ post, featured = false }) {
+type PostHeaderProps = { post: Post; featured?: boolean }
+
+export default function PostHeader({
+  post,
+  featured = false,
+}: PostHeaderProps) {
   return (
-    <div className={styles.container} style={{ "--post-color": post.color }}>
+    <div
+      className={styles.container}
+      style={{ "--post-color": post.color } as CSSProperties}
+    >
       <div className={styles.header}>
         <div className={styles.content}>
           {featured && <span className={styles.featuredTag}>Featured</span>}

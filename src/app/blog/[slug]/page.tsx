@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import PostHeader from "@/components/PostHeader/PostHeader"
 import ShareLinks from "@/components/ShareLinks/ShareLinks"
 import { absoluteUrl } from "@/lib/paths"
@@ -7,14 +8,18 @@ import styles from "./page.module.scss"
 
 export const dynamicParams = false
 
+type PostPageProps = { params: Promise<{ slug: string }> }
+
 export async function generateStaticParams() {
   const posts = await getPosts()
   return posts.map((post) => ({ slug: post.slug }))
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
   const post = await getPost((await params).slug)
-  const image = post.socialImage && absoluteUrl(post.socialImage)
+  const images = post.socialImage ? [absoluteUrl(post.socialImage)] : undefined
   return {
     title: `${site.name}: ${post.title}`,
     openGraph: {
@@ -22,18 +27,18 @@ export async function generateMetadata({ params }) {
       siteName: site.name,
       type: "article",
       url: absoluteUrl(`/blog/${post.slug}/`),
-      images: image && [image],
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       creator: `@${site.twitter}`,
-      images: image && [image],
+      images,
     },
   }
 }
 
-export default async function PostPage({ params }) {
+export default async function PostPage({ params }: PostPageProps) {
   const post = await getPost((await params).slug)
   const { Content } = post
 

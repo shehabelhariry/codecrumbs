@@ -11,6 +11,7 @@ npm install
 npm run dev     # http://localhost:3000
 npm run build   # static export to out/
 npm start       # serve out/ locally
+npm run typecheck
 ```
 
 Pushing to `codecrumbs-2026` deploys to GitHub Pages via `.github/workflows/deploy.yml`.

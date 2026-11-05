@@ -1,3 +1,5 @@
+import type { Metadata } from "next"
+import type { ReactNode } from "react"
 import { Darker_Grotesque, Fredoka } from "next/font/google"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
@@ -26,12 +28,12 @@ const themeScript = `try {
   if (dark) document.documentElement.dataset.theme = "dark"
 } catch (e) {}`
 
-export const metadata = {
+export const metadata: Metadata = {
   title: site.name,
   description: site.description,
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
