@@ -1,4 +1,5 @@
 import Link from "next/link"
+import CategoryLabel from "@/components/CategoryLabel/CategoryLabel"
 import type { Post } from "@/lib/posts"
 import styles from "./PostArchive.module.scss"
 
@@ -15,7 +16,9 @@ export default function PostArchive({ posts }: { posts: Post[] }) {
             <Link className={styles.title} href={`/blog/${post.slug}/`}>
               {post.title}
             </Link>
-            <span className={`tag ${styles.tag}`}>{post.tag}</span>
+            <span className={styles.category}>
+              <CategoryLabel category={post.category} />
+            </span>
           </div>
         </li>
       ))}

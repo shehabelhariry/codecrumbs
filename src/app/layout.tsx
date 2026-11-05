@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { Manrope } from "next/font/google"
+import { Manrope, Newsreader } from "next/font/google"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
 import { absoluteUrl } from "@/lib/paths"
@@ -13,6 +13,13 @@ const sans = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
+})
+
+// Titles only: intro, cards and post headings
+const serif = Newsreader({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-serif",
 })
 
 // Runs before the first paint so a saved dark theme never flashes light
@@ -37,7 +44,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={sans.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${sans.variable} ${serif.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
