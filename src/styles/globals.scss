@@ -1,0 +1,182 @@
+:root {
+  --primary-color: #36c7bb;
+  --font-color: #111;
+  --bg-color: white;
+  --highlight-font-color: #c73686;
+  --highlight-background-color: #f0f0f0;
+  --dark-theme-trigger-color: #eaeaea;
+  --border-color: #eaeaea;
+  --font-heading:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-mono:
+    "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+    "Liberation Mono", Menlo, Courier, monospace;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --primary-color: #7b9d9b;
+  --font-color: #e1e1ff;
+  --bg-color: #1d1c1c;
+  --highlight-font-color: rgb(230, 219, 116);
+  --highlight-background-color: #272822;
+  --dark-theme-trigger-color: rgb(230, 219, 116);
+  --border-color: #3a3a3a;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 112.5%;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body), sans-serif;
+  color: var(--font-color);
+  background-color: var(--bg-color);
+  word-wrap: break-word;
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1.45rem;
+  color: inherit;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  line-height: 1.1;
+  text-rendering: optimizeLegibility;
+}
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.62671rem;
+}
+h3 {
+  font-size: 1.38316rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 0.85028rem;
+}
+h6 {
+  font-size: 0.78405rem;
+}
+
+p,
+figure,
+pre,
+table,
+form,
+dl,
+dd,
+address {
+  margin: 0 0 1.45rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1.45rem 1.45rem;
+  padding: 0;
+}
+li {
+  margin-bottom: calc(1.45rem / 2);
+}
+
+blockquote {
+  margin: 0 1.45rem 1.45rem;
+}
+blockquote *:last-child,
+li *:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+  margin: 0 0 1.45rem;
+  border-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+b,
+strong {
+  font-weight: bold;
+}
+
+hr {
+  height: 1px;
+  margin: 0 0 calc(1.45rem - 1px);
+  border: none;
+  background: var(--border-color);
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
+::placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+.width-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-family: var(--font-body), sans-serif;
+  margin-bottom: 0.5rem;
+  color: #4b4b4b;
+}
+
+.page-description {
+  font-size: 1.3rem;
+  color: #888888;
+}

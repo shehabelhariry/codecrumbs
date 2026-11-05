@@ -1,0 +1,29 @@
+.button {
+  display: inline-block;
+  background-color: transparent;
+  font-family: var(--font-body), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 600px;
+  padding: 0.4rem 1.2rem;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.label {
+  position: relative;
+  top: -2px;
+}
