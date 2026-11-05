@@ -1,0 +1,31 @@
+.codeGroup {
+  margin-bottom: 1.45rem;
+
+  figure {
+    margin: 0;
+  }
+
+  // The tab already names the language
+  [data-code-language] {
+    display: none;
+  }
+}
+
+.tabs {
+  display: flex;
+
+  button {
+    padding: 0.5rem 2rem;
+    border: 0;
+    background: #bdbdbd;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .active {
+    background: var(--primary-color);
+  }
+}

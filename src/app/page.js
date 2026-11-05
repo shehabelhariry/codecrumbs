@@ -1,8 +1,19 @@
-export default function HomePage() {
+import PostHeader from "@/components/PostHeader/PostHeader"
+import PostPreview from "@/components/PostPreview/PostPreview"
+import { getPosts } from "@/lib/posts"
+import styles from "./page.module.scss"
+
+export default async function HomePage() {
+  const [featured, ...rest] = await getPosts()
+
   return (
-    <main>
-      <h1>[codecrumbs].</h1>
-      <p>Moving to Next.js. Posts are on their way back.</p>
-    </main>
+    <>
+      <PostHeader post={featured} featured />
+      <div className={styles.posts}>
+        {rest.map((post) => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
+      </div>
+    </>
   )
 }

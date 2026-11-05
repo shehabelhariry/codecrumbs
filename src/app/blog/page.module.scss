@@ -1,0 +1,16 @@
+.page {
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+
+  @media all and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
