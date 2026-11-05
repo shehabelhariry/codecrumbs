@@ -2,5 +2,14 @@
 
 It's longer than a tweet but shorter than your average blog post
 
+## Development
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8c726274-230e-49b0-b523-c8e2c75e4397/deploy-status)](https://app.netlify.com/sites/codecrumbs/deploys)
+Requires Node 20.9+ (`nvm use` picks up `.nvmrc`).
+
+```sh
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # static export to out/
+```
+
+Pushing to `master` deploys to GitHub Pages via `.github/workflows/deploy.yml`.
