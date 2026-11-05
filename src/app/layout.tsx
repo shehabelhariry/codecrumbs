@@ -1,15 +1,17 @@
 import type { Metadata } from "next"
 import type { ReactNode } from "react"
-import { Inter } from "next/font/google"
+import { Manrope } from "next/font/google"
 import Header from "@/components/Header/Header"
 import Footer from "@/components/Footer/Footer"
+import { absoluteUrl } from "@/lib/paths"
 import { site } from "@/lib/site"
 
 import "@/styles/globals.scss"
 import styles from "./layout.module.scss"
 
-const sans = Inter({
+const sans = Manrope({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
 })
 
@@ -21,8 +23,16 @@ const themeScript = `try {
 } catch (e) {}`
 
 export const metadata: Metadata = {
+  metadataBase: new URL(absoluteUrl("/")),
   title: site.name,
   description: site.description,
+  alternates: { canonical: absoluteUrl("/") },
+  openGraph: {
+    siteName: site.name,
+    type: "website",
+    images: [site.socialImage],
+  },
+  twitter: { card: "summary_large_image", images: [site.socialImage] },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {

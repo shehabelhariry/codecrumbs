@@ -8,11 +8,14 @@ export default function Header() {
     <header className={styles.header}>
       <nav className={`container ${styles.navigation}`}>
         <Link className={styles.logo} href="/">
-          <span className={styles.bracket}>[</span>
           {site.wordmark}
-          <span className={styles.bracket}>]</span>.
         </Link>
-        <ThemeToggle />
+        <div className={styles.actions}>
+          <Link className={styles.link} href="/blog/">
+            Writing
+          </Link>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   )

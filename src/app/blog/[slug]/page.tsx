@@ -19,21 +19,22 @@ export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
   const post = await getPost((await params).slug)
-  const images = post.socialImage ? [absoluteUrl(post.socialImage)] : undefined
+  const url = absoluteUrl(`/blog/${post.slug}/`)
   return {
     title: `${post.title} · ${site.name}`,
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
       siteName: site.name,
       type: "article",
-      url: absoluteUrl(`/blog/${post.slug}/`),
-      images,
+      url,
+      images: [site.socialImage],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       creator: `@${site.twitter}`,
-      images,
+      images: [site.socialImage],
     },
   }
 }
@@ -43,12 +44,14 @@ export default async function PostPage({ params }: PostPageProps) {
   const { Content } = post
 
   return (
-    <article className="container">
-      <PostHeader post={post} />
-      <div className={styles.body}>
-        <Content />
-      </div>
-      <ShareLinks post={post} />
-    </article>
+    <div className="container">
+      <article className={styles.article}>
+        <PostHeader post={post} />
+        <div className={styles.body}>
+          <Content />
+        </div>
+        <ShareLinks post={post} />
+      </article>
+    </div>
   )
 }

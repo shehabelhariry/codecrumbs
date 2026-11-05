@@ -1,5 +1,29 @@
 .intro {
-  margin-bottom: 2rem;
-  color: var(--muted);
-  font-size: 1.25rem;
+  max-width: var(--content-width);
+  margin-bottom: 3.5rem;
+
+  h1 {
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  // Thin mustard rule under the introduction
+  &::after {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 3px;
+    margin-top: 1.5rem;
+    border-radius: 2px;
+    background-color: var(--color-accent);
+  }
+}
+
+.sectionTitle {
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
 }

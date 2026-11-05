@@ -3,8 +3,13 @@ import styles from "./Footer.module.scss"
 
 export default function Footer() {
   return (
-    <footer className={`container ${styles.footer}`}>
-      © 2019–{new Date().getFullYear()} {site.author}
+    <footer className={styles.footer}>
+      <div className={`container ${styles.inner}`}>
+        <span>
+          © 2019–{new Date().getFullYear()} {site.author}
+        </span>
+        <span>Made with curiosity.</span>
+      </div>
     </footer>
   )
 }

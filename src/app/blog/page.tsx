@@ -1,10 +1,13 @@
 import type { Metadata } from "next"
-import PostList from "@/components/PostList/PostList"
+import PostArchive from "@/components/PostArchive/PostArchive"
+import { absoluteUrl } from "@/lib/paths"
 import { getPosts } from "@/lib/posts"
 import { site } from "@/lib/site"
+import styles from "./page.module.scss"
 
 export const metadata: Metadata = {
-  title: `All posts · ${site.name}`,
+  title: `Writing · ${site.name}`,
+  alternates: { canonical: absoluteUrl("/blog/") },
 }
 
 export default async function BlogPage() {
@@ -12,8 +15,10 @@ export default async function BlogPage() {
 
   return (
     <div className="container">
-      <h1>All posts</h1>
-      <PostList posts={posts} />
+      <div className={styles.archive}>
+        <h1>Writing</h1>
+        <PostArchive posts={posts} />
+      </div>
     </div>
   )
 }

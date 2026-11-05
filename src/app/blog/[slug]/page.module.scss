@@ -1,21 +1,24 @@
+// Reading column, aligned to the container's left edge
+.article {
+  max-width: var(--content-width);
+}
+
 .body {
   font-size: 1.125rem;
-  line-height: 1.75;
+  line-height: 1.8;
 
   h2 {
-    margin-top: 2.5rem;
+    margin-top: 2.75rem;
   }
 
   h3 {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
   }
 
   blockquote {
     margin-inline: 0;
     padding-left: 1.25rem;
-    border-left: 3px solid var(--bracket);
-    color: var(--muted);
-    font-size: 1.25rem;
+    border-left: 3px solid var(--color-border);
 
     p {
       margin: 0;
@@ -30,8 +33,10 @@
 
   :not(pre) > code {
     padding: 0.1em 0.35em;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
-    background: var(--surface);
+    background: var(--color-surface);
+    color: var(--color-ink);
     font-size: 0.875em;
   }
 }

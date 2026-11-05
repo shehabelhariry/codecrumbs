@@ -1,25 +1,36 @@
 :root {
-  --bg: #ffffff;
-  --surface: #f5f7fb;
-  --text: #16181d;
-  --muted: #5b6270;
-  --border: #e3e7ee;
-  --accent: #2563eb;
-  --bracket: #3b82f6;
-  --page-width: 48rem;
+  --color-bg: #fffcf8;
+  --color-surface: #ffffff;
+  --color-ink: #17364b;
+  --color-body: #46535c;
+  --color-muted: #6b6f71;
+  --color-tag: #3f5a6e;
+  --color-accent: #d99a18;
+  --color-accent-dark: #9b6800;
+  --color-border: #e8e3dd;
+  --color-border-strong: #b9b2a9;
+  --page-width: 70rem;
+  --content-width: 45rem;
   --gutter: 1.25rem;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
   color-scheme: light;
+
+  @media (min-width: 768px) {
+    --gutter: 2rem;
+  }
 }
 
 [data-theme="dark"] {
-  --bg: #0f1115;
-  --surface: #181b21;
-  --text: #e6e8ec;
-  --muted: #9aa3b2;
-  --border: #2a2f38;
-  --accent: #7aa7ff;
-  --bracket: #60a5fa;
+  --color-bg: #111c25;
+  --color-surface: #182733;
+  --color-ink: #f4f3ee;
+  --color-body: #d2d7d9;
+  --color-muted: #a5afb5;
+  --color-tag: #b9c6cf;
+  --color-accent: #e0ae42;
+  --color-accent-dark: #e0ae42;
+  --color-border: #30404b;
+  --color-border-strong: #52646f;
   color-scheme: dark;
 }
 
@@ -35,11 +46,11 @@ html {
 
 body {
   margin: 0;
-  background-color: var(--bg);
-  color: var(--text);
+  background-color: var(--color-bg);
+  color: var(--color-body);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -49,20 +60,19 @@ h2,
 h3,
 h4 {
   margin: 0 0 1rem;
+  color: var(--color-ink);
+  font-weight: 700;
   line-height: 1.25;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 h1 {
-  font-size: 2.25rem;
-  font-weight: 700;
+  font-size: clamp(1.625rem, 4vw, 2.25rem);
 }
 h2 {
   font-size: 1.5rem;
-  font-weight: 650;
 }
 h3 {
   font-size: 1.25rem;
-  font-weight: 650;
 }
 
 p,
@@ -78,8 +88,12 @@ img {
   max-width: 100%;
 }
 
+// Navy links with a mustard underline
 a {
-  color: var(--accent);
+  color: var(--color-ink);
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
 }
 
 code,
@@ -94,27 +108,33 @@ input {
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+  outline: 2px solid var(--color-accent-dark);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
-// One page width with side gutters, used by every page
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+// The shared container: header, homepage and article pages start at the
+// same left edge
 .container {
   width: min(100% - 2 * var(--gutter), var(--page-width));
   margin-inline: auto;
 }
 
-// "[tag]" labels, the one place besides the logo that uses brackets
+// "[tag]" labels: lowercase, one colour, brackets included
 .tag {
-  color: var(--muted);
-  font-size: 0.875rem;
+  color: var(--color-tag);
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: lowercase;
 
-  &::before,
-  &::after {
-    color: var(--bracket);
-  }
   &::before {
     content: "[";
   }
@@ -125,7 +145,7 @@ input {
 
 // Shiki writes light and dark colours for every token; pick one per theme
 pre[data-theme] {
-  background-color: var(--surface);
+  background-color: var(--color-surface);
 }
 code[data-theme] span {
   color: var(--shiki-light);
