@@ -7,8 +7,15 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <nav className={`container ${styles.navigation}`}>
-        <Link className={styles.logo} href="/">
-          {site.wordmark}
+        <Link
+          className={styles.logo}
+          href="/"
+          aria-label={`${site.name}, home`}
+        >
+          <span className={styles.full}>{site.wordmark}</span>
+          <span className={styles.short} aria-hidden="true">
+            {site.shortWordmark}
+          </span>
         </Link>
         <div className={styles.actions}>
           <Link className={styles.link} href="/blog/">

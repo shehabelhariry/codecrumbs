@@ -18,6 +18,22 @@
   text-decoration: none;
 }
 
+// Hovering or focusing the wordmark shortens it to [waw].
+.short {
+  display: none;
+}
+
+.logo:hover,
+.logo:focus-visible {
+  .full {
+    display: none;
+  }
+
+  .short {
+    display: inline;
+  }
+}
+
 .actions {
   display: flex;
   align-items: center;
