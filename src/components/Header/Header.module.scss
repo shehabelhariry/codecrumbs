@@ -18,12 +18,6 @@
   text-decoration: none;
 }
 
-// Hovering or focusing the wordmark shortens it to [waw].
-.logo:hover .fold,
-.logo:focus-visible .fold {
-  display: none;
-}
-
 .actions {
   display: flex;
   align-items: center;
