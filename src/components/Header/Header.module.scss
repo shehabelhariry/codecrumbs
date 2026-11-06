@@ -18,28 +18,10 @@
   text-decoration: none;
 }
 
-// Hovering or focusing the wordmark folds it into [waw].
-.fold {
-  display: inline-block;
-  max-width: 2.5em;
-  overflow: hidden;
-  white-space: pre;
-  vertical-align: bottom;
-  transition:
-    max-width 0.35s ease,
-    opacity 0.25s ease;
-}
-
+// Hovering or focusing the wordmark shortens it to [waw].
 .logo:hover .fold,
 .logo:focus-visible .fold {
-  max-width: 0;
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .fold {
-    transition: none;
-  }
+  display: none;
 }
 
 .actions {

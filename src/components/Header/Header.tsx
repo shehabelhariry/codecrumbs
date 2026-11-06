@@ -12,7 +12,7 @@ export default function Header() {
           href="/"
           aria-label={`${site.name}, home`}
         >
-          {/* [what a world]. folds into [waw]. on hover */}
+          {/* [what a world]. shortens to [waw]. on hover */}
           [w<span className={styles.fold}>hat </span>a
           <span className={styles.fold}> </span>w
           <span className={styles.fold}>orld</span>].
